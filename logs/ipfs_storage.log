@@ -1,0 +1,92 @@
+2025-07-23 16:04:36 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 16:04:36 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /repos/commune/ipfs/logs
+2025-07-23 16:04:36 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 16:04:36 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 16:04:36 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: 7m0M9cGiKGGsjZx9EwUm2xtOcLTL_bBhY-66PGUlasY
+2025-07-23 16:04:36 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 16:04:36 | [32mINFO[0m | main | lifespan:38 | 🚀 Starting IPFS Storage System...
+2025-07-23 16:04:36 | [32mINFO[0m | system | log_system_event:164 | SYSTEM_STARTUP | Application starting
+2025-07-23 16:04:36 | [32mINFO[0m | main | lifespan:43 | 📊 Database initialized
+2025-07-23 16:04:36 | [33mWARNING[0m | main | lifespan:53 | ⚠️  IPFS connection warning: 503: Failed to get IPFS node info: 503: Failed to connect to IPFS node at http://localhost:5001: Unsupported Multiaddr pattern: 'http://localhost:5001'
+2025-07-23 16:04:36 | [33mWARNING[0m | main | lifespan:54 |    Make sure IPFS daemon is running: 'ipfs daemon'
+2025-07-23 16:04:36 | [33mWARNING[0m | system | log_system_event:164 | IPFS_CONNECTION_FAILED | 503: Failed to get IPFS node info: 503: Failed to connect to IPFS node at http://localhost:5001: Unsupported Multiaddr pattern: 'http://localhost:5001'
+2025-07-23 16:04:36 | [32mINFO[0m | main | lifespan:59 | 🔑 Admin API Key: 7m0M9cGiKGGsjZx9EwUm2xtOcLTL_bBhY-66PGUlasY
+2025-07-23 16:04:36 | [32mINFO[0m | main | lifespan:60 | 📋 Admin endpoints available at /admin/
+2025-07-23 16:04:36 | [32mINFO[0m | main | lifespan:65 | 🛑 Shutting down IPFS Storage System...
+2025-07-23 16:04:36 | [32mINFO[0m | system | log_system_event:164 | SYSTEM_SHUTDOWN | Application shutting down
+2025-07-23 16:04:42 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 16:04:42 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /repos/commune/ipfs/logs
+2025-07-23 16:04:42 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 16:04:42 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 16:04:42 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: jkXnNkLuuN8U7CtoX23Z_Nk4EAfzdKqqHJFZjiZCHxA
+2025-07-23 16:04:42 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 16:04:42 | [32mINFO[0m | main | lifespan:38 | 🚀 Starting IPFS Storage System...
+2025-07-23 16:04:42 | [32mINFO[0m | system | log_system_event:164 | SYSTEM_STARTUP | Application starting
+2025-07-23 16:04:42 | [32mINFO[0m | main | lifespan:43 | 📊 Database initialized
+2025-07-23 16:04:42 | [33mWARNING[0m | main | lifespan:53 | ⚠️  IPFS connection warning: 503: Failed to get IPFS node info: 503: Failed to connect to IPFS node at http://localhost:5001: Unsupported Multiaddr pattern: 'http://localhost:5001'
+2025-07-23 16:04:42 | [33mWARNING[0m | main | lifespan:54 |    Make sure IPFS daemon is running: 'ipfs daemon'
+2025-07-23 16:04:42 | [33mWARNING[0m | system | log_system_event:164 | IPFS_CONNECTION_FAILED | 503: Failed to get IPFS node info: 503: Failed to connect to IPFS node at http://localhost:5001: Unsupported Multiaddr pattern: 'http://localhost:5001'
+2025-07-23 16:04:42 | [32mINFO[0m | main | lifespan:59 | 🔑 Admin API Key: jkXnNkLuuN8U7CtoX23Z_Nk4EAfzdKqqHJFZjiZCHxA
+2025-07-23 16:04:42 | [32mINFO[0m | main | lifespan:60 | 📋 Admin endpoints available at /admin/
+2025-07-23 16:04:46 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 16:04:46 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /repos/commune/ipfs/logs
+2025-07-23 16:04:46 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 16:04:46 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 16:04:46 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: TnNkFFKTc-OIGcRuLla6Z9q1t6DujRf9JGaXVOTPCK8
+2025-07-23 16:04:46 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 16:04:46 | [32mINFO[0m | main | lifespan:38 | 🚀 Starting IPFS Storage System...
+2025-07-23 16:04:46 | [32mINFO[0m | system | log_system_event:164 | SYSTEM_STARTUP | Application starting
+2025-07-23 16:04:46 | [32mINFO[0m | main | lifespan:43 | 📊 Database initialized
+2025-07-23 16:04:46 | [33mWARNING[0m | main | lifespan:53 | ⚠️  IPFS connection warning: 503: Failed to get IPFS node info: 503: Failed to connect to IPFS node at http://localhost:5001: Unsupported Multiaddr pattern: 'http://localhost:5001'
+2025-07-23 16:04:46 | [33mWARNING[0m | main | lifespan:54 |    Make sure IPFS daemon is running: 'ipfs daemon'
+2025-07-23 16:04:46 | [33mWARNING[0m | system | log_system_event:164 | IPFS_CONNECTION_FAILED | 503: Failed to get IPFS node info: 503: Failed to connect to IPFS node at http://localhost:5001: Unsupported Multiaddr pattern: 'http://localhost:5001'
+2025-07-23 16:04:46 | [32mINFO[0m | main | lifespan:59 | 🔑 Admin API Key: TnNkFFKTc-OIGcRuLla6Z9q1t6DujRf9JGaXVOTPCK8
+2025-07-23 16:04:46 | [32mINFO[0m | main | lifespan:60 | 📋 Admin endpoints available at /admin/
+2025-07-23 16:04:46 | [32mINFO[0m | main | lifespan:65 | 🛑 Shutting down IPFS Storage System...
+2025-07-23 16:04:46 | [32mINFO[0m | system | log_system_event:164 | SYSTEM_SHUTDOWN | Application shutting down
+2025-07-23 16:04:57 | [32mINFO[0m | main | lifespan:65 | 🛑 Shutting down IPFS Storage System...
+2025-07-23 16:04:57 | [32mINFO[0m | system | log_system_event:164 | SYSTEM_SHUTDOWN | Application shutting down
+2025-07-23 16:04:57 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 16:04:57 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /repos/commune/ipfs/logs
+2025-07-23 16:04:57 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 16:04:57 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 16:04:57 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: H23oJxMyAGeXyjTLL7jD1z3crDecdmg85jyKtJb8Wec
+2025-07-23 16:04:57 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 16:04:57 | [32mINFO[0m | main | lifespan:38 | 🚀 Starting IPFS Storage System...
+2025-07-23 16:04:57 | [32mINFO[0m | system | log_system_event:164 | SYSTEM_STARTUP | Application starting
+2025-07-23 16:04:57 | [32mINFO[0m | main | lifespan:43 | 📊 Database initialized
+2025-07-23 16:04:57 | [33mWARNING[0m | main | lifespan:53 | ⚠️  IPFS connection warning: 503: Failed to get IPFS node info: 503: Failed to connect to IPFS node at http://localhost:5001: Unsupported Multiaddr pattern: 'http://localhost:5001'
+2025-07-23 16:04:57 | [33mWARNING[0m | main | lifespan:54 |    Make sure IPFS daemon is running: 'ipfs daemon'
+2025-07-23 16:04:57 | [33mWARNING[0m | system | log_system_event:164 | IPFS_CONNECTION_FAILED | 503: Failed to get IPFS node info: 503: Failed to connect to IPFS node at http://localhost:5001: Unsupported Multiaddr pattern: 'http://localhost:5001'
+2025-07-23 16:04:57 | [32mINFO[0m | main | lifespan:59 | 🔑 Admin API Key: H23oJxMyAGeXyjTLL7jD1z3crDecdmg85jyKtJb8Wec
+2025-07-23 16:04:57 | [32mINFO[0m | main | lifespan:60 | 📋 Admin endpoints available at /admin/
+2025-07-23 16:05:06 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 16:05:06 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /repos/commune/ipfs/logs
+2025-07-23 16:05:06 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 16:05:06 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 16:05:06 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: b8LkyYVibT3szDLOS4i9-Wn8hImY0Zqr5rtwKkqfmZU
+2025-07-23 16:05:06 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 16:05:06 | [32mINFO[0m | main | lifespan:38 | 🚀 Starting IPFS Storage System...
+2025-07-23 16:05:06 | [32mINFO[0m | system | log_system_event:164 | SYSTEM_STARTUP | Application starting
+2025-07-23 16:05:06 | [32mINFO[0m | main | lifespan:43 | 📊 Database initialized
+2025-07-23 16:05:06 | [33mWARNING[0m | main | lifespan:53 | ⚠️  IPFS connection warning: 503: Failed to get IPFS node info: 503: Failed to connect to IPFS node at http://localhost:5001: Unsupported Multiaddr pattern: 'http://localhost:5001'
+2025-07-23 16:05:06 | [33mWARNING[0m | main | lifespan:54 |    Make sure IPFS daemon is running: 'ipfs daemon'
+2025-07-23 16:05:06 | [33mWARNING[0m | system | log_system_event:164 | IPFS_CONNECTION_FAILED | 503: Failed to get IPFS node info: 503: Failed to connect to IPFS node at http://localhost:5001: Unsupported Multiaddr pattern: 'http://localhost:5001'
+2025-07-23 16:05:06 | [32mINFO[0m | main | lifespan:59 | 🔑 Admin API Key: b8LkyYVibT3szDLOS4i9-Wn8hImY0Zqr5rtwKkqfmZU
+2025-07-23 16:05:06 | [32mINFO[0m | main | lifespan:60 | 📋 Admin endpoints available at /admin/
+2025-07-23 16:05:06 | [32mINFO[0m | main | lifespan:65 | 🛑 Shutting down IPFS Storage System...
+2025-07-23 16:05:06 | [32mINFO[0m | system | log_system_event:164 | SYSTEM_SHUTDOWN | Application shutting down
+2025-07-23 16:05:12 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 16:05:12 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /repos/commune/ipfs/logs
+2025-07-23 16:05:12 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 16:05:12 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 16:05:12 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: gB5DKv788Um3LawOsek986L9nm2lP45iXiGwjWDRdeE
+2025-07-23 16:05:12 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 16:05:12 | [32mINFO[0m | main | lifespan:38 | 🚀 Starting IPFS Storage System...
+2025-07-23 16:05:12 | [32mINFO[0m | system | log_system_event:164 | SYSTEM_STARTUP | Application starting
+2025-07-23 16:05:12 | [32mINFO[0m | main | lifespan:43 | 📊 Database initialized
+2025-07-23 16:05:12 | [33mWARNING[0m | main | lifespan:53 | ⚠️  IPFS connection warning: 503: Failed to get IPFS node info: 503: Failed to connect to IPFS node at http://localhost:5001: Unsupported Multiaddr pattern: 'http://localhost:5001'
+2025-07-23 16:05:12 | [33mWARNING[0m | main | lifespan:54 |    Make sure IPFS daemon is running: 'ipfs daemon'
+2025-07-23 16:05:12 | [33mWARNING[0m | system | log_system_event:164 | IPFS_CONNECTION_FAILED | 503: Failed to get IPFS node info: 503: Failed to connect to IPFS node at http://localhost:5001: Unsupported Multiaddr pattern: 'http://localhost:5001'
+2025-07-23 16:05:12 | [32mINFO[0m | main | lifespan:59 | 🔑 Admin API Key: gB5DKv788Um3LawOsek986L9nm2lP45iXiGwjWDRdeE
+2025-07-23 16:05:12 | [32mINFO[0m | main | lifespan:60 | 📋 Admin endpoints available at /admin/

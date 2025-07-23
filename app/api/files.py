@@ -19,9 +19,11 @@ from app.models.file import (
     FileUpdateRequest, FileStatsResponse, ErrorResponse
 )
 from app.config import get_settings
+from app.logging_config import get_logger, log_file_operation, log_ipfs_operation
 
 router = APIRouter()
 settings = get_settings()
+logger = get_logger(__name__)
 
 
 def get_ipfs_service():
@@ -69,8 +71,16 @@ async def upload_file(
     - **tags**: Optional comma-separated tags
     """
     try:
+        logger.info(f"📤 Starting file upload: {file.filename} ({file.size} bytes)")
+        
         # Upload file to IPFS
+        import time
+        start_time = time.time()
         ipfs_result = await ipfs_service.add_file(file)
+        upload_duration = time.time() - start_time
+        
+        logger.info(f"✅ IPFS upload successful: {ipfs_result['cid']} ({upload_duration:.3f}s)")
+        log_ipfs_operation("UPLOAD", ipfs_result['cid'], True, duration=upload_duration)
         
         # Get client IP
         client_ip = request.client.host if request.client else None
@@ -93,6 +103,16 @@ async def upload_file(
             tags=tags_json,
             uploader_ip=client_ip
         )
+        
+        log_file_operation(
+            "UPLOAD", 
+            file_record.cid, 
+            file_record.filename, 
+            file_record.size, 
+            client_ip
+        )
+        
+        logger.info(f"📁 File metadata stored: {file_record.filename} -> {file_record.cid}")
         
         return FileUploadResponse(
             cid=file_record.cid,
