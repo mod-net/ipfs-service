@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPFS Storage System</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-cloud-upload-alt"></i> IPFS Storage System</h1>
+            <p>Distributed file storage with IPFS</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <h3>Drop files here or click to browse</h3>
+                        <p>Maximum file size: 100MB</p>
+                        <input type="file" id="fileInput" multiple hidden>
+                        <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                            <i class="fas fa-folder-open"></i> Choose Files
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="upload-options">
+                    <div class="form-group">
+                        <label for="description">Description (optional):</label>
+                        <input type="text" id="description" placeholder="Enter file description">
+                    </div>
+                    <div class="form-group">
+                        <label for="tags">Tags (optional):</label>
+                        <input type="text" id="tags" placeholder="Enter comma-separated tags">
+                    </div>
+                </div>
+
+                <div class="upload-progress" id="uploadProgress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">Uploading...</div>
+                </div>
+            </section>
+
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search files by name or description...">
+                    <button class="btn btn-secondary" onclick="searchFiles()">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                    <button class="btn btn-secondary" onclick="loadFiles()">
+                        <i class="fas fa-list"></i> Show All
+                    </button>
+                </div>
+            </section>
+
+            <!-- Files List Section -->
+            <section class="files-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-folder"></i> Files</h2>
+                    <div class="files-stats" id="filesStats">
+                        <span id="totalFiles">0 files</span>
+                    </div>
+                </div>
+
+                <div class="files-grid" id="filesGrid">
+                    <div class="loading" id="loading">
+                        <i class="fas fa-spinner fa-spin"></i> Loading files...
+                    </div>
+                </div>
+
+                <div class="pagination" id="pagination" style="display: none;">
+                    <button class="btn btn-secondary" id="prevBtn" onclick="previousPage()">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <span id="pageInfo">Page 1</span>
+                    <button class="btn btn-secondary" id="nextBtn" onclick="nextPage()">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- File Details Modal -->
+        <div class="modal" id="fileModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">File Details</h3>
+                    <button class="close-btn" onclick="closeModal()">&times;</button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- File details will be populated here -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+                    <button class="btn btn-primary" id="downloadBtn">
+                        <i class="fas fa-download"></i> Download
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notifications -->
+        <div class="toast-container" id="toastContainer"></div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 IPFS Storage System. Built with FastAPI and IPFS.</p>
+        <div class="system-info" id="systemInfo">
+            <span id="nodeStatus">Checking IPFS connection...</span>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
