@@ -73,6 +73,27 @@ A distributed file storage system built on IPFS (InterPlanetary File System) tha
 5. Basic security measures implemented
 6. Documentation for setup and usage
 
+## Containerization Requirements
+
+### Docker Configuration
+- **Multi-container setup**: Separate containers for application, IPFS node, and database
+- **IPFS Node Container**: Pre-configured IPFS node with proper initialization
+- **Application Container**: FastAPI application with all dependencies
+- **Database Container**: SQLite or PostgreSQL for metadata storage
+- **Orchestration**: Docker Compose configuration for easy deployment
+- **Volume Management**: Persistent storage for IPFS data and database
+- **Network Configuration**: Internal networking between containers
+- **Environment Configuration**: Configurable via environment variables
+- **Health Checks**: Container health monitoring and restart policies
+- **Port Management**: Proper port exposure and mapping
+
+### Deployment Features
+- **One-command startup**: `docker-compose up` to launch entire stack
+- **Automatic IPFS initialization**: Node setup and configuration on first run
+- **Data persistence**: Volumes for IPFS blocks and database
+- **Configuration flexibility**: Environment-based configuration
+- **Production readiness**: Optimized images and security configurations
+
 ## Future Enhancements
 
 - File sharing with access controls
@@ -81,3 +102,5 @@ A distributed file storage system built on IPFS (InterPlanetary File System) tha
 - Integration with IPFS clusters
 - Mobile-responsive design
 - File encryption before IPFS storage
+- Kubernetes deployment configurations
+- Multi-node IPFS cluster support

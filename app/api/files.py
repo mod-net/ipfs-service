@@ -243,14 +243,11 @@ async def search_files(
     """
     try:
         # Search files in database
-        files = db_service.search_files(
+        files, total = db_service.search_files(
             query=search_request.query,
             skip=search_request.skip,
             limit=search_request.limit
         )
-        
-        # Get total count (approximate for search)
-        total = len(files)  # This is approximate; could be improved
         
         # Convert to metadata objects
         file_metadata = [
@@ -285,14 +282,15 @@ async def update_file_metadata(
     - **tags**: New tags list (optional)
     """
     try:
-        # Get existing file record
-        file_record = db_service.get_file_by_cid(cid)
-        if not file_record:
-            raise HTTPException(status_code=404, detail="File not found")
-        
-        # Update fields
+        # Use a single database session for the entire operation
         db = db_service.get_session()
         try:
+            # Get existing file record in the same session we'll use for updates
+            file_record = db.query(FileRecord).filter(FileRecord.cid == cid).first()
+            if not file_record:
+                raise HTTPException(status_code=404, detail="File not found")
+            
+            # Update fields
             if update_request.filename is not None:
                 file_record.filename = update_request.filename
             

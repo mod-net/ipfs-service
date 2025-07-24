@@ -8,7 +8,7 @@ import asyncio
 from datetime import datetime
 from typing import Optional
 
-from sqlalchemy import Column, Integer, String, DateTime, Text, BigInteger, create_engine
+from sqlalchemy import Column, Integer, String, DateTime, Text, BigInteger, create_engine, func
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
@@ -143,6 +143,14 @@ class DatabaseService:
         finally:
             db.close()
     
+    def get_file_by_id(self, file_id: int) -> Optional[FileRecord]:
+        """Get file record by ID."""
+        db = self.get_session()
+        try:
+            return db.query(FileRecord).filter(FileRecord.id == file_id).first()
+        finally:
+            db.close()
+    
     def get_all_files(self, skip: int = 0, limit: int = 100) -> list[FileRecord]:
         """Get all file records with pagination."""
         db = self.get_session()
@@ -151,15 +159,47 @@ class DatabaseService:
         finally:
             db.close()
     
-    def search_files(self, query: str, skip: int = 0, limit: int = 100) -> list[FileRecord]:
-        """Search files by filename or description."""
+    def list_files(self, skip: int = 0, limit: int = 50) -> tuple[list[FileRecord], int]:
+        """List files with pagination, returning (files, total_count)."""
         db = self.get_session()
         try:
-            return db.query(FileRecord).filter(
+            total = db.query(FileRecord).count()
+            files = db.query(FileRecord).offset(skip).limit(limit).all()
+            return files, total
+        finally:
+            db.close()
+    
+    def search_files(self, query: str, skip: int = 0, limit: int = 100) -> tuple[list[FileRecord], int]:
+        """Search files by filename or description, returning (files, total_count)."""
+        db = self.get_session()
+        try:
+            base_query = db.query(FileRecord).filter(
                 (FileRecord.filename.contains(query)) |
                 (FileRecord.original_filename.contains(query)) |
                 (FileRecord.description.contains(query))
-            ).offset(skip).limit(limit).all()
+            )
+            total = base_query.count()
+            files = base_query.offset(skip).limit(limit).all()
+            return files, total
+        finally:
+            db.close()
+    
+    def update_file_record(self, cid: str, updates: dict) -> Optional[FileRecord]:
+        """Update file record by CID."""
+        db = self.get_session()
+        try:
+            file_record = db.query(FileRecord).filter(FileRecord.cid == cid).first()
+            if file_record:
+                for key, value in updates.items():
+                    if hasattr(file_record, key):
+                        setattr(file_record, key, value)
+                db.commit()
+                db.refresh(file_record)
+                return file_record
+            return None
+        except Exception as e:
+            db.rollback()
+            raise e
         finally:
             db.close()
     
@@ -184,5 +224,14 @@ class DatabaseService:
         db = self.get_session()
         try:
             return db.query(FileRecord).count()
+        finally:
+            db.close()
+    
+    def get_total_size(self) -> int:
+        """Get total size of all files."""
+        db = self.get_session()
+        try:
+            result = db.query(func.sum(FileRecord.size)).scalar()
+            return result or 0
         finally:
             db.close()

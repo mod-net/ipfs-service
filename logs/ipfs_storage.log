@@ -90,3 +90,560 @@
 2025-07-23 16:05:12 | [33mWARNING[0m | system | log_system_event:164 | IPFS_CONNECTION_FAILED | 503: Failed to get IPFS node info: 503: Failed to connect to IPFS node at http://localhost:5001: Unsupported Multiaddr pattern: 'http://localhost:5001'
 2025-07-23 16:05:12 | [32mINFO[0m | main | lifespan:59 | 🔑 Admin API Key: gB5DKv788Um3LawOsek986L9nm2lP45iXiGwjWDRdeE
 2025-07-23 16:05:12 | [32mINFO[0m | main | lifespan:60 | 📋 Admin endpoints available at /admin/
+2025-07-23 18:50:50 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 18:50:50 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 18:50:50 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 18:50:50 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 18:50:50 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: CNeikHgm884e3zC6tABnknn5lEZD-8eWxHd_QOAmYAk
+2025-07-23 18:50:50 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 18:50:51 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 18:50:51 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 18:50:51 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: malware.exe (8 bytes)
+2025-07-23 18:50:52 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: large.txt (104857600 bytes)
+2025-07-23 18:50:54 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: lifecycle_test.txt (43 bytes)
+2025-07-23 18:53:09 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 18:53:09 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 18:53:09 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 18:53:09 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 18:53:09 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: afVUYi-MRaGm9LLQu3qdxnd4ck61Jb5eMpntlqnTPqQ
+2025-07-23 18:53:09 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 18:54:06 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 18:54:06 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 18:54:06 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 18:54:06 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 18:54:06 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: X6uCy4tlwZtcx0OITOsi1Pd7Bmxgoh7F_pru-MLQvPo
+2025-07-23 18:54:06 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:04:28 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:04:28 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:04:28 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:04:28 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:04:28 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: 5jCs_Cyn4hA5Iiar1amolBKD-jy7ST7MPhZ980ySAgM
+2025-07-23 19:04:28 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:04:39 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:04:39 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:04:39 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:04:39 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:04:39 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: pnersXwU_HgfGv1X1qrGQFysV1DQxT5_BIPCdqi1RFc
+2025-07-23 19:04:39 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:04:40 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:04:40 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestCID123456789 (0.000s)
+2025-07-23 19:04:40 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestCID123456789 | SUCCESS | 0.000s
+2025-07-23 19:04:40 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestCID123456789 | test_file.txt | 17 bytes | testclient
+2025-07-23 19:04:40 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test_file.txt -> QmTestCID123456789
+2025-07-23 19:04:56 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:04:56 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:04:56 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:04:56 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:04:56 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: SgCRB9QbeDZFbOFtj9yRZOXeU5wX-QITgiMm9Gh-rqk
+2025-07-23 19:04:56 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:04:56 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:04:56 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestCID123456789 (0.000s)
+2025-07-23 19:04:56 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestCID123456789 | SUCCESS | 0.000s
+2025-07-23 19:05:04 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:05:04 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:05:04 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:05:04 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:05:04 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: A0POwPi6tiZtJRHL22JzsQJLMNuAJSUqMdY9aKYTejI
+2025-07-23 19:05:04 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:05:04 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:05:04 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestCID123456789 (0.000s)
+2025-07-23 19:05:04 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestCID123456789 | SUCCESS | 0.000s
+2025-07-23 19:05:19 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:05:19 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:05:19 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:05:19 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:05:19 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: oQabt0-rd24DrfnCqDlCHr8d3CiwhN78PQ0cYLz9jbo
+2025-07-23 19:05:19 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:05:19 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:05:19 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestCID123456789 (0.000s)
+2025-07-23 19:05:19 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestCID123456789 | SUCCESS | 0.000s
+2025-07-23 19:06:11 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:06:11 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:06:11 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:06:11 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:06:11 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: BMsvUXnapZdoeVql3wmgQs6tTCX5oA90YgZzCk5UUlw
+2025-07-23 19:06:11 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:06:11 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:06:11 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestd48863583ee393ec7f83 (0.000s)
+2025-07-23 19:06:11 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestd48863583ee393ec7f83 | SUCCESS | 0.000s
+2025-07-23 19:06:11 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestd48863583ee393ec7f83 | test.txt | 17 bytes | testclient
+2025-07-23 19:06:11 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTestd48863583ee393ec7f83
+2025-07-23 19:06:34 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:06:34 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:06:34 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:06:34 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:06:34 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: GRkubt7mjDE_C-QzdtvIZp4cnTtclsfH8gEo92ZlPSY
+2025-07-23 19:06:34 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:06:34 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:06:34 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest0e4dd75f7994b57e8ca3 (0.000s)
+2025-07-23 19:06:34 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest0e4dd75f7994b57e8ca3 | SUCCESS | 0.000s
+2025-07-23 19:06:34 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest0e4dd75f7994b57e8ca3 | test.txt | 43 bytes | testclient
+2025-07-23 19:06:34 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTest0e4dd75f7994b57e8ca3
+2025-07-23 19:06:48 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:06:48 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:06:48 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:06:48 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:06:48 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: haseZUzFdaXYUbTACqceeqpCgQOFK6cb2OGtSwIwQns
+2025-07-23 19:06:48 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:06:48 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:06:48 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest47c8bda74b50bda949ae (0.000s)
+2025-07-23 19:06:48 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest47c8bda74b50bda949ae | SUCCESS | 0.000s
+2025-07-23 19:06:48 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest47c8bda74b50bda949ae | test.txt | 43 bytes | testclient
+2025-07-23 19:06:48 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTest47c8bda74b50bda949ae
+2025-07-23 19:06:48 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:06:48 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest23ec5a4419bd12a94b01 (0.000s)
+2025-07-23 19:06:48 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest23ec5a4419bd12a94b01 | SUCCESS | 0.000s
+2025-07-23 19:06:48 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest23ec5a4419bd12a94b01 | test.txt | 43 bytes | testclient
+2025-07-23 19:06:48 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTest23ec5a4419bd12a94b01
+2025-07-23 19:06:49 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: malware.exe (8 bytes)
+2025-07-23 19:06:49 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: large.txt (104857600 bytes)
+2025-07-23 19:06:52 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: lifecycle_test.txt (43 bytes)
+2025-07-23 19:06:52 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestbc837c7cd2fce3f159af (0.000s)
+2025-07-23 19:06:52 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestbc837c7cd2fce3f159af | SUCCESS | 0.000s
+2025-07-23 19:06:52 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestbc837c7cd2fce3f159af | lifecycle_test.txt | 43 bytes | testclient
+2025-07-23 19:06:52 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: lifecycle_test.txt -> QmTestbc837c7cd2fce3f159af
+2025-07-23 19:08:17 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:08:17 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:08:17 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:08:17 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:08:17 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: b7a9Vl2I2YL4aYRL5MAzdUAl0CeS8QAIax5glqWyo_0
+2025-07-23 19:08:17 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:08:57 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:08:57 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:08:57 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:08:57 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:08:57 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: 3f7yGqTPppwwz9cgZEJaG-mhmw_kBQYnyFbsk3LAOI8
+2025-07-23 19:08:57 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:09:27 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:09:27 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:09:27 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:09:27 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:09:27 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: ZXKUDTNrA8VCMQjQf9sblDgdAy0vP6j8tc1dmT4g4KQ
+2025-07-23 19:09:27 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:09:34 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:09:34 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:09:34 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:09:34 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:09:34 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: sOk813f__TjatE_Sl4FKmwO-TOUk7u6GB3NIcQ-fjrQ
+2025-07-23 19:09:34 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:09:34 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:09:34 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestc1d5ff788b1b2625278a (0.000s)
+2025-07-23 19:09:34 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestc1d5ff788b1b2625278a | SUCCESS | 0.000s
+2025-07-23 19:09:34 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestc1d5ff788b1b2625278a | test.txt | 43 bytes | testclient
+2025-07-23 19:09:34 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTestc1d5ff788b1b2625278a
+2025-07-23 19:09:35 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:09:35 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestd0c130bf53341cbca67f (0.000s)
+2025-07-23 19:09:35 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestd0c130bf53341cbca67f | SUCCESS | 0.000s
+2025-07-23 19:09:35 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestd0c130bf53341cbca67f | test.txt | 43 bytes | testclient
+2025-07-23 19:09:35 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTestd0c130bf53341cbca67f
+2025-07-23 19:09:35 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: malware.exe (8 bytes)
+2025-07-23 19:09:36 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: large.txt (104857600 bytes)
+2025-07-23 19:09:41 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: lifecycle_test.txt (43 bytes)
+2025-07-23 19:09:41 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest863c8d7a340df7f72a60 (0.000s)
+2025-07-23 19:09:41 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest863c8d7a340df7f72a60 | SUCCESS | 0.000s
+2025-07-23 19:09:41 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest863c8d7a340df7f72a60 | lifecycle_test.txt | 43 bytes | testclient
+2025-07-23 19:09:41 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: lifecycle_test.txt -> QmTest863c8d7a340df7f72a60
+2025-07-23 19:10:24 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:10:24 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:10:24 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:10:24 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:10:24 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: qPzC5jANq2Wzzb3Oa3Z5Sity4mlxXR_57EUOzMI3X8o
+2025-07-23 19:10:24 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:10:52 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:10:52 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:10:52 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:10:52 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:10:52 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: carzm23oDnRXzLcQiU55UJdtOEEnWDxCCsknc3PxVdI
+2025-07-23 19:10:52 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:11:09 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:11:09 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:11:09 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:11:09 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:11:09 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: QhRfcJakzYPs-hAqfAqolPl0-DstZFKjoRk3Q6y1SUY
+2025-07-23 19:11:09 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:11:10 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:11:10 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestb1f0d3bfe4980c2ec03e (0.000s)
+2025-07-23 19:11:10 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestb1f0d3bfe4980c2ec03e | SUCCESS | 0.000s
+2025-07-23 19:11:10 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestb1f0d3bfe4980c2ec03e | test.txt | 43 bytes | testclient
+2025-07-23 19:11:10 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTestb1f0d3bfe4980c2ec03e
+2025-07-23 19:11:10 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:11:10 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest91bf50dd77857c27bfa6 (0.000s)
+2025-07-23 19:11:10 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest91bf50dd77857c27bfa6 | SUCCESS | 0.000s
+2025-07-23 19:11:10 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest91bf50dd77857c27bfa6 | test.txt | 43 bytes | testclient
+2025-07-23 19:11:10 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTest91bf50dd77857c27bfa6
+2025-07-23 19:11:10 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: malware.exe (8 bytes)
+2025-07-23 19:11:11 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: large.txt (104857600 bytes)
+2025-07-23 19:11:16 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: lifecycle_test.txt (43 bytes)
+2025-07-23 19:11:16 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestd5c47cda3469c0865deb (0.000s)
+2025-07-23 19:11:16 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestd5c47cda3469c0865deb | SUCCESS | 0.000s
+2025-07-23 19:11:16 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestd5c47cda3469c0865deb | lifecycle_test.txt | 43 bytes | testclient
+2025-07-23 19:11:16 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: lifecycle_test.txt -> QmTestd5c47cda3469c0865deb
+2025-07-23 19:11:32 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:11:32 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:11:32 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:11:32 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:11:32 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: QpWF5yOb5NP41mTnSSPu7pWrsb9x-Pm6oajPIoBT6Cg
+2025-07-23 19:11:32 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:11:53 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:11:53 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:11:53 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:11:53 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:11:53 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: yCTkJD7LkcA0W8de0tITkud6t456U31U5JmeFQ9BNec
+2025-07-23 19:11:53 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:12:00 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:12:00 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:12:00 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:12:00 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:12:00 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: ahxXqMjRNKPbWoP4YUGwd9W66gF1B8vbw63NLNPw3qA
+2025-07-23 19:12:00 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:12:00 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:12:00 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest8f7dd03b52ad9a0e6e48 (0.000s)
+2025-07-23 19:12:00 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest8f7dd03b52ad9a0e6e48 | SUCCESS | 0.000s
+2025-07-23 19:12:00 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest8f7dd03b52ad9a0e6e48 | test.txt | 43 bytes | testclient
+2025-07-23 19:12:00 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTest8f7dd03b52ad9a0e6e48
+2025-07-23 19:12:00 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:12:00 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest05a6b5bed464b9b4bd2a (0.000s)
+2025-07-23 19:12:00 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest05a6b5bed464b9b4bd2a | SUCCESS | 0.000s
+2025-07-23 19:12:00 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest05a6b5bed464b9b4bd2a | test.txt | 43 bytes | testclient
+2025-07-23 19:12:00 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTest05a6b5bed464b9b4bd2a
+2025-07-23 19:12:00 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: malware.exe (8 bytes)
+2025-07-23 19:12:01 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: large.txt (104857600 bytes)
+2025-07-23 19:12:06 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: lifecycle_test.txt (43 bytes)
+2025-07-23 19:12:06 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestd04f0a99f1ee2b3a6fea (0.000s)
+2025-07-23 19:12:06 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestd04f0a99f1ee2b3a6fea | SUCCESS | 0.000s
+2025-07-23 19:12:06 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestd04f0a99f1ee2b3a6fea | lifecycle_test.txt | 43 bytes | testclient
+2025-07-23 19:12:06 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: lifecycle_test.txt -> QmTestd04f0a99f1ee2b3a6fea
+2025-07-23 19:12:29 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:12:29 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:12:29 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:12:29 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:12:29 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: m4RDnr6kZiREhZZbZwRic3a09SoYaW0XcH7YK4tfIXY
+2025-07-23 19:12:29 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:13:36 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:13:36 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:13:36 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:13:36 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:13:36 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: Q4URPYx9bAflpbr-KH_D9RTxXy2AoV_2PG-OF3WSqUs
+2025-07-23 19:13:36 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:13:47 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:13:47 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:13:47 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:13:47 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:13:47 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: l-lPm9KRGhbCC0xoZKOrcnXi2hyzTgGU31P5SDbYmFA
+2025-07-23 19:13:47 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:13:47 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:13:47 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest58a7bbadc3b78f0acc7e (0.000s)
+2025-07-23 19:13:47 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest58a7bbadc3b78f0acc7e | SUCCESS | 0.000s
+2025-07-23 19:13:47 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest58a7bbadc3b78f0acc7e | test.txt | 43 bytes | testclient
+2025-07-23 19:13:47 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTest58a7bbadc3b78f0acc7e
+2025-07-23 19:13:45 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:13:45 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestfd0f054088a5ce0d0c4f (0.000s)
+2025-07-23 19:13:45 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestfd0f054088a5ce0d0c4f | SUCCESS | 0.000s
+2025-07-23 19:13:45 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestfd0f054088a5ce0d0c4f | test.txt | 43 bytes | testclient
+2025-07-23 19:13:45 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTestfd0f054088a5ce0d0c4f
+2025-07-23 19:13:45 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: malware.exe (8 bytes)
+2025-07-23 19:13:46 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: large.txt (104857600 bytes)
+2025-07-23 19:13:52 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: lifecycle_test.txt (43 bytes)
+2025-07-23 19:13:52 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest97f5f2d87634b4d47242 (0.000s)
+2025-07-23 19:13:52 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest97f5f2d87634b4d47242 | SUCCESS | 0.000s
+2025-07-23 19:13:52 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest97f5f2d87634b4d47242 | lifecycle_test.txt | 43 bytes | testclient
+2025-07-23 19:13:52 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: lifecycle_test.txt -> QmTest97f5f2d87634b4d47242
+2025-07-23 19:14:26 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:14:26 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:14:26 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:14:26 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:14:26 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: igf2rlM-khG8KvtMI0P18FAAu1hcifQIhymZQEXwJdw
+2025-07-23 19:14:26 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:15:03 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:15:03 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:15:03 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:15:03 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:15:03 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: BWk4priAS2DgyFZdQWVoYkq5CgCsqWpDIpIllBzMMM4
+2025-07-23 19:15:03 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:15:10 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:15:10 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:15:10 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:15:10 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:15:10 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: 7CpFYghYvsqeB9QBAJBTV6xxv0xCyhoGcA33LdEHUHU
+2025-07-23 19:15:10 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:15:10 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:15:10 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestd436317c79d79713a39b (0.000s)
+2025-07-23 19:15:10 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestd436317c79d79713a39b | SUCCESS | 0.000s
+2025-07-23 19:15:10 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestd436317c79d79713a39b | test.txt | 43 bytes | testclient
+2025-07-23 19:15:10 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTestd436317c79d79713a39b
+2025-07-23 19:15:10 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:15:10 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestc84790b0b4cefe3eb5cc (0.000s)
+2025-07-23 19:15:10 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestc84790b0b4cefe3eb5cc | SUCCESS | 0.000s
+2025-07-23 19:15:10 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestc84790b0b4cefe3eb5cc | test.txt | 43 bytes | testclient
+2025-07-23 19:15:10 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTestc84790b0b4cefe3eb5cc
+2025-07-23 19:15:11 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: malware.exe (8 bytes)
+2025-07-23 19:15:11 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: large.txt (104857600 bytes)
+2025-07-23 19:15:17 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: lifecycle_test.txt (43 bytes)
+2025-07-23 19:15:17 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest3f20e15a451ade1b1b5d (0.000s)
+2025-07-23 19:15:17 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest3f20e15a451ade1b1b5d | SUCCESS | 0.000s
+2025-07-23 19:15:17 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest3f20e15a451ade1b1b5d | lifecycle_test.txt | 43 bytes | testclient
+2025-07-23 19:15:17 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: lifecycle_test.txt -> QmTest3f20e15a451ade1b1b5d
+2025-07-23 19:15:42 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:15:42 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:15:42 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:15:42 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:15:42 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: HMWonh3QXe5ZHH04QJRSH3HQEmDZJ8eu3XU-89n4MVc
+2025-07-23 19:15:42 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:16:45 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:16:45 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:16:45 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:16:45 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:16:45 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: 3m2nEhiJ4tZ5znMFDL4FZCAM14IyM6oCISGJY42V6bY
+2025-07-23 19:16:45 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:17:09 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:17:09 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:17:09 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:17:09 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:17:09 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: cMfEZr44btDFzoqOjcCAUnhmiHsa6VhkmpqsWkTZmNc
+2025-07-23 19:17:09 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:17:28 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:17:28 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:17:28 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:17:28 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:17:28 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: zuj60ugLS-OwL2rZhbXg6_UoHW45eYOSlG9G2koOLMw
+2025-07-23 19:17:28 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:18:14 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:18:14 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:18:14 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:18:14 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:18:14 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: o3grUppfBVGZTNkfKTeYMbOMqCcy1EJK9lCpysAFI_I
+2025-07-23 19:18:14 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:18:43 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:18:43 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:18:43 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:18:43 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:18:43 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: sx-cCiCyH3FZZoe9YgNQl65EUBYM2-6NU0JjN-qiopg
+2025-07-23 19:18:43 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:19:01 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:19:01 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:19:01 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:19:01 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:19:01 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: nWvWWHIOnoiLNMBbS1qcX-qfuli7CP7OfK4nWOvwMT0
+2025-07-23 19:19:01 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:19:08 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:19:08 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:19:08 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:19:08 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:19:08 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: wZm0uQTYCFSfoc64Hfcg4OBzIxV8pvbbHPpDRigPREM
+2025-07-23 19:19:08 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:19:09 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:19:09 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestfba83c684609fed69b99 (0.000s)
+2025-07-23 19:19:09 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestfba83c684609fed69b99 | SUCCESS | 0.000s
+2025-07-23 19:19:09 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestfba83c684609fed69b99 | test.txt | 43 bytes | testclient
+2025-07-23 19:19:09 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTestfba83c684609fed69b99
+2025-07-23 19:19:09 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:19:09 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest65e02981684c4665c84b (0.000s)
+2025-07-23 19:19:09 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest65e02981684c4665c84b | SUCCESS | 0.000s
+2025-07-23 19:19:09 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest65e02981684c4665c84b | test.txt | 43 bytes | testclient
+2025-07-23 19:19:09 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTest65e02981684c4665c84b
+2025-07-23 19:19:09 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: malware.exe (8 bytes)
+2025-07-23 19:19:10 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: large.txt (104857600 bytes)
+2025-07-23 19:19:15 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: lifecycle_test.txt (43 bytes)
+2025-07-23 19:19:15 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestcc16cb12c743dcebed29 (0.000s)
+2025-07-23 19:19:15 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestcc16cb12c743dcebed29 | SUCCESS | 0.000s
+2025-07-23 19:19:15 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestcc16cb12c743dcebed29 | lifecycle_test.txt | 43 bytes | testclient
+2025-07-23 19:19:15 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: lifecycle_test.txt -> QmTestcc16cb12c743dcebed29
+2025-07-23 19:19:36 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:19:36 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:19:36 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:19:36 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:19:36 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: YfD5lyCN1TfY0_YXCP9abQJFQSGirWpL4V7A-48LkQM
+2025-07-23 19:19:36 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:19:53 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:19:53 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:19:53 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:19:53 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:19:53 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: SrWxs6R_e2NpfmUFyGnogBs6yaWeKMy3Nbz7JxRL1VA
+2025-07-23 19:19:53 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:20:35 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:20:35 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:20:35 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:20:35 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:20:35 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: jhpDrilqEisOC2dRggz6Tjd88POXqUQ9cLlnEHHaDpg
+2025-07-23 19:20:35 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:20:42 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:20:42 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:20:42 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:20:42 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:20:42 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: EW0OaFYXoYdig6TZLwQf3RAeFvHFLy6y_l1MxDB8t3M
+2025-07-23 19:20:42 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:20:42 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:20:42 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestf3016b20359f17b8e9a9 (0.000s)
+2025-07-23 19:20:42 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestf3016b20359f17b8e9a9 | SUCCESS | 0.000s
+2025-07-23 19:20:42 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestf3016b20359f17b8e9a9 | test.txt | 43 bytes | testclient
+2025-07-23 19:20:42 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTestf3016b20359f17b8e9a9
+2025-07-23 19:20:42 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:20:42 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest51e14fc4319148e87c28 (0.000s)
+2025-07-23 19:20:42 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest51e14fc4319148e87c28 | SUCCESS | 0.000s
+2025-07-23 19:20:42 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest51e14fc4319148e87c28 | test.txt | 43 bytes | testclient
+2025-07-23 19:20:42 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTest51e14fc4319148e87c28
+2025-07-23 19:20:43 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: malware.exe (8 bytes)
+2025-07-23 19:20:43 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: large.txt (104857600 bytes)
+2025-07-23 19:20:47 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: lifecycle_test.txt (43 bytes)
+2025-07-23 19:20:47 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest01b3e2c9469da000c6c6 (0.000s)
+2025-07-23 19:20:47 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest01b3e2c9469da000c6c6 | SUCCESS | 0.000s
+2025-07-23 19:20:47 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest01b3e2c9469da000c6c6 | lifecycle_test.txt | 43 bytes | testclient
+2025-07-23 19:20:47 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: lifecycle_test.txt -> QmTest01b3e2c9469da000c6c6
+2025-07-23 19:21:31 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:21:31 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:21:31 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:21:31 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:21:31 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: _FAkGVjaq93P2B30vneU7gNrLfakvTKY7InRTIn34Dc
+2025-07-23 19:21:31 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:21:48 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:21:48 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:21:48 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:21:48 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:21:48 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: Q13a5HAoqV49_bzqYFSY1QMEJb5zn26NG3GWivcagHM
+2025-07-23 19:21:48 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:22:07 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:22:07 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:22:07 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:22:07 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:22:07 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: ks9abDRg0hMny1WQGTvwepiwzTX3TzrLk2pLI2urCOA
+2025-07-23 19:22:07 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:22:15 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:22:15 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:22:15 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:22:15 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:22:15 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: _8eKiojSu-VlobznK0e_LcVhDoQ63eg9e93D7OQAjTo
+2025-07-23 19:22:15 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:22:15 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:22:15 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestc3d10eff0b518d8ace29 (0.000s)
+2025-07-23 19:22:15 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestc3d10eff0b518d8ace29 | SUCCESS | 0.000s
+2025-07-23 19:22:15 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestc3d10eff0b518d8ace29 | test.txt | 43 bytes | testclient
+2025-07-23 19:22:15 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTestc3d10eff0b518d8ace29
+2025-07-23 19:22:15 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:22:15 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTesta8f68c5bb6deab8ba475 (0.000s)
+2025-07-23 19:22:15 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTesta8f68c5bb6deab8ba475 | SUCCESS | 0.000s
+2025-07-23 19:22:15 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTesta8f68c5bb6deab8ba475 | test.txt | 43 bytes | testclient
+2025-07-23 19:22:15 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTesta8f68c5bb6deab8ba475
+2025-07-23 19:22:15 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: malware.exe (8 bytes)
+2025-07-23 19:22:16 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: large.txt (104857600 bytes)
+2025-07-23 19:22:19 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: lifecycle_test.txt (43 bytes)
+2025-07-23 19:22:19 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest81b0dfeee5985470eac4 (0.000s)
+2025-07-23 19:22:19 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest81b0dfeee5985470eac4 | SUCCESS | 0.000s
+2025-07-23 19:22:19 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest81b0dfeee5985470eac4 | lifecycle_test.txt | 43 bytes | testclient
+2025-07-23 19:22:19 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: lifecycle_test.txt -> QmTest81b0dfeee5985470eac4
+2025-07-23 19:23:51 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:23:51 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:23:51 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:23:51 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:23:51 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: 5WgQ3sIiLXUamNEzWtNYDvIJgtlsSidP3RN4Vu_LO-k
+2025-07-23 19:23:51 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:23:51 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:23:51 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest4a5b8cf62980807c9c47 (0.000s)
+2025-07-23 19:23:51 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest4a5b8cf62980807c9c47 | SUCCESS | 0.000s
+2025-07-23 19:23:51 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest4a5b8cf62980807c9c47 | test.txt | 43 bytes | testclient
+2025-07-23 19:23:51 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTest4a5b8cf62980807c9c47
+2025-07-23 19:23:51 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:23:51 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest3e5ef809c77afcb181c8 (0.000s)
+2025-07-23 19:23:51 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest3e5ef809c77afcb181c8 | SUCCESS | 0.000s
+2025-07-23 19:23:51 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest3e5ef809c77afcb181c8 | test.txt | 43 bytes | testclient
+2025-07-23 19:23:51 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTest3e5ef809c77afcb181c8
+2025-07-23 19:23:51 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: malware.exe (8 bytes)
+2025-07-23 19:23:52 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: large.txt (104857600 bytes)
+2025-07-23 19:23:58 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: lifecycle_test.txt (43 bytes)
+2025-07-23 19:23:58 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest8fa340e3aa3ee02ab2bf (0.000s)
+2025-07-23 19:23:58 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest8fa340e3aa3ee02ab2bf | SUCCESS | 0.000s
+2025-07-23 19:23:58 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest8fa340e3aa3ee02ab2bf | lifecycle_test.txt | 43 bytes | testclient
+2025-07-23 19:23:58 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: lifecycle_test.txt -> QmTest8fa340e3aa3ee02ab2bf
+2025-07-23 19:25:04 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:25:04 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:25:04 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:25:04 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:25:04 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: KUbG_Jxt3IU2z7unHsjBtISr7jMlhyAa3Fn-U7XCMRk
+2025-07-23 19:25:04 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:25:54 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:25:54 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:25:54 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:25:54 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:25:54 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: VW9FZA_bg8B6SGMaCd6PqIheOAPIHabo3CpXi0AUR_M
+2025-07-23 19:25:54 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:26:01 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:26:01 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:26:01 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:26:01 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:26:01 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: Ik9oPTb6y8k7XspQNGwOEom9m5N9ecClnaeYXySJPDQ
+2025-07-23 19:26:01 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:26:08 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:26:08 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:26:08 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:26:08 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:26:08 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: V1VR3ruyic0oM4gIk1IAHwAWZNng-CWo2p6eY6juJt0
+2025-07-23 19:26:08 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:26:44 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:26:44 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:26:44 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:26:44 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:26:44 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: RvE0LR1Tl_OEWlpKYwWYW0X5tNTPoEWoIyQttq4wV8I
+2025-07-23 19:26:44 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:26:49 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:26:49 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:26:49 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:26:49 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:26:49 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: tNjUmZHvB4hedMKbgJqSgHley-XYLQO4B0hP-kBP-ig
+2025-07-23 19:26:49 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:26:59 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:26:59 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:26:59 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:26:59 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:26:59 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: oheN9cewezyGLmbleYlfg5_-L4dMZZMH4OoEuNYEUeI
+2025-07-23 19:26:59 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:27:11 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:27:11 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:27:11 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:27:11 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:27:11 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: xs6N6ewaF2WtvVANYtY3eBKSc0wAomex3DE3NZByJtk
+2025-07-23 19:27:11 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:27:42 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:27:42 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:27:42 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:27:42 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:27:42 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: BI7poF9EQluWFFGIbfPM9wG9jKTXiOjOBTSx1QOxwTg
+2025-07-23 19:27:42 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:27:43 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:27:43 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest79bbad9a6cc1ca819801 (0.000s)
+2025-07-23 19:27:43 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest79bbad9a6cc1ca819801 | SUCCESS | 0.000s
+2025-07-23 19:27:43 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest79bbad9a6cc1ca819801 | test.txt | 43 bytes | testclient
+2025-07-23 19:27:43 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTest79bbad9a6cc1ca819801
+2025-07-23 19:27:43 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:27:43 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestb7b2c78285efcc2bba25 (0.000s)
+2025-07-23 19:27:43 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestb7b2c78285efcc2bba25 | SUCCESS | 0.000s
+2025-07-23 19:27:43 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestb7b2c78285efcc2bba25 | test.txt | 43 bytes | testclient
+2025-07-23 19:27:43 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTestb7b2c78285efcc2bba25
+2025-07-23 19:27:43 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: malware.exe (8 bytes)
+2025-07-23 19:27:44 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: large.txt (104857600 bytes)
+2025-07-23 19:27:48 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: lifecycle_test.txt (43 bytes)
+2025-07-23 19:27:48 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTestaca93cf302645f6291d6 (0.000s)
+2025-07-23 19:27:48 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTestaca93cf302645f6291d6 | SUCCESS | 0.000s
+2025-07-23 19:27:48 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTestaca93cf302645f6291d6 | lifecycle_test.txt | 43 bytes | testclient
+2025-07-23 19:27:48 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: lifecycle_test.txt -> QmTestaca93cf302645f6291d6
+2025-07-23 19:28:56 | [32mINFO[0m | app.logging_config | setup_logging:119 | 🔧 Logging system initialized
+2025-07-23 19:28:56 | [32mINFO[0m | app.logging_config | setup_logging:120 | 📁 Log directory: /home/bakobi/repos/comai/commune-ipfs/logs
+2025-07-23 19:28:56 | [32mINFO[0m | app.logging_config | setup_logging:121 | 🐛 Debug mode: False
+2025-07-23 19:28:56 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:39 | 🔑 Generated random API key. Set SECRET_KEY in environment for persistent key.
+2025-07-23 19:28:56 | [33mWARNING[0m | app.auth | _get_or_generate_api_key:40 | 🔑 Current API key: DvbukO_Us9ul6TjOj7MZT-AMrLGdiohIttkfcoP6K-U
+2025-07-23 19:28:56 | [32mINFO[0m | app.auth | __init__:29 | 🔐 API key authentication initialized
+2025-07-23 19:28:57 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:28:57 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest59ab01b752ac5a93829f (0.000s)
+2025-07-23 19:28:57 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest59ab01b752ac5a93829f | SUCCESS | 0.000s
+2025-07-23 19:28:57 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest59ab01b752ac5a93829f | test.txt | 43 bytes | testclient
+2025-07-23 19:28:57 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTest59ab01b752ac5a93829f
+2025-07-23 19:28:57 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: test.txt (43 bytes)
+2025-07-23 19:28:57 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest5adc4a441a0b342c0be2 (0.000s)
+2025-07-23 19:28:57 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest5adc4a441a0b342c0be2 | SUCCESS | 0.000s
+2025-07-23 19:28:57 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest5adc4a441a0b342c0be2 | test.txt | 43 bytes | testclient
+2025-07-23 19:28:57 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: test.txt -> QmTest5adc4a441a0b342c0be2
+2025-07-23 19:28:57 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: malware.exe (8 bytes)
+2025-07-23 19:28:58 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: large.txt (104857600 bytes)
+2025-07-23 19:29:05 | [32mINFO[0m | app.api.files | upload_file:74 | 📤 Starting file upload: lifecycle_test.txt (43 bytes)
+2025-07-23 19:29:05 | [32mINFO[0m | app.api.files | upload_file:82 | ✅ IPFS upload successful: QmTest836829f48dcefc8c24f6 (0.000s)
+2025-07-23 19:29:05 | [32mINFO[0m | ipfs_operations | log_ipfs_operation:154 | UPLOAD | QmTest836829f48dcefc8c24f6 | SUCCESS | 0.000s
+2025-07-23 19:29:05 | [32mINFO[0m | file_operations | log_file_operation:144 | UPLOAD | QmTest836829f48dcefc8c24f6 | lifecycle_test.txt | 43 bytes | testclient
+2025-07-23 19:29:05 | [32mINFO[0m | app.api.files | upload_file:115 | 📁 File metadata stored: lifecycle_test.txt -> QmTest836829f48dcefc8c24f6

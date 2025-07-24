@@ -11,7 +11,7 @@ import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI, Request, Response
+from fastapi import FastAPI, Request, Response, Depends
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
@@ -20,10 +20,11 @@ import uvicorn
 
 from app.config import get_settings
 from app.database import init_db
-from app.api.files import router as files_router
+from app.api.files import router as files_router, get_ipfs_service
 from app.api.admin import router as admin_router
 from app.logging_config import init_logging, get_logger, log_api_access, log_system_event
 from app.auth import get_current_api_key
+from app.services.ipfs import IPFSService
 
 
 # Initialize logging first
@@ -141,11 +142,9 @@ async def health_check():
 
 
 @app.get("/info")
-async def system_info():
+async def system_info(ipfs_service: IPFSService = Depends(get_ipfs_service)):
     """Get system information."""
     try:
-        from app.services.ipfs import IPFSService
-        ipfs_service = IPFSService()
         node_info = await ipfs_service.get_node_info()
         
         return {
