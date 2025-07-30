@@ -376,9 +376,7 @@ class TestHealthResponse:
 
     def test_health_response_default_timestamp(self):
         """Test health response with default timestamp."""
-        response = HealthResponse(
-            status="healthy", service="IPFS Storage System", version="0.1.0"
-        )
+        response = HealthResponse(status="healthy", service="IPFS Storage System", version="0.1.0")
 
         assert isinstance(response.timestamp, datetime)
         # Should be recent (within last minute)
@@ -387,9 +385,7 @@ class TestHealthResponse:
 
     def test_health_response_json_serialization(self):
         """Test health response JSON serialization."""
-        response = HealthResponse(
-            status="healthy", service="IPFS Storage System", version="0.1.0"
-        )
+        response = HealthResponse(status="healthy", service="IPFS Storage System", version="0.1.0")
 
         json_str = response.json()
         assert response.timestamp.isoformat() in json_str
@@ -433,9 +429,7 @@ class TestErrorResponse:
 
     def test_error_response_json_serialization(self):
         """Test error response JSON serialization."""
-        response = ErrorResponse(
-            error="Test error", detail="Test error detail", code="TEST_ERROR"
-        )
+        response = ErrorResponse(error="Test error", detail="Test error detail", code="TEST_ERROR")
 
         json_str = response.json()
         assert "Test error" in json_str
