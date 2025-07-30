@@ -12,7 +12,9 @@ import pytest
 class TestFileUploadEndpoint:
     """Test file upload API endpoint."""
 
-    def test_upload_file_success(self, test_client, mock_ipfs_service, test_file_content):
+    def test_upload_file_success(
+        self, test_client, mock_ipfs_service, test_file_content
+    ):
         """Test successful file upload."""
         # Prepare test file
         files = {"file": ("test.txt", BytesIO(test_file_content), "text/plain")}
@@ -30,7 +32,9 @@ class TestFileUploadEndpoint:
         assert "upload_date" in result
         assert "gateway_url" in result
 
-    def test_upload_file_without_metadata(self, test_client, mock_ipfs_service, test_file_content):
+    def test_upload_file_without_metadata(
+        self, test_client, mock_ipfs_service, test_file_content
+    ):
         """Test file upload without description and tags."""
         files = {"file": ("test.txt", BytesIO(test_file_content), "text/plain")}
 
@@ -43,9 +47,13 @@ class TestFileUploadEndpoint:
     def test_upload_file_with_invalid_type(self, test_client, mock_ipfs_service):
         """Test upload with invalid file type."""
         # Mock IPFS service to raise validation error
-        mock_ipfs_service.add_file.side_effect = Exception("File type 'exe' not allowed")
+        mock_ipfs_service.add_file.side_effect = Exception(
+            "File type 'exe' not allowed"
+        )
 
-        files = {"file": ("malware.exe", BytesIO(b"fake exe"), "application/octet-stream")}
+        files = {
+            "file": ("malware.exe", BytesIO(b"fake exe"), "application/octet-stream")
+        }
 
         response = test_client.post("/api/files/upload", files=files)
 
@@ -67,7 +75,9 @@ class TestFileUploadEndpoint:
 
     def test_upload_without_file(self, test_client):
         """Test upload request without file."""
-        response = test_client.post("/api/files/upload", data={"description": "No file"})
+        response = test_client.post(
+            "/api/files/upload", data={"description": "No file"}
+        )
 
         assert response.status_code == 422  # Validation error
 
@@ -75,7 +85,9 @@ class TestFileUploadEndpoint:
 class TestFileDownloadEndpoint:
     """Test file download API endpoint."""
 
-    def test_download_file_success(self, test_client, mock_ipfs_service, sample_file_record):
+    def test_download_file_success(
+        self, test_client, mock_ipfs_service, sample_file_record
+    ):
         """Test successful file download."""
         test_content = b"Test file content"
         mock_ipfs_service.get_file.return_value = test_content
@@ -97,7 +109,9 @@ class TestFileDownloadEndpoint:
         assert response.status_code == 404
         assert "not found" in response.json()["detail"].lower()
 
-    def test_download_ipfs_error(self, test_client, mock_ipfs_service, sample_file_record):
+    def test_download_ipfs_error(
+        self, test_client, mock_ipfs_service, sample_file_record
+    ):
         """Test download when IPFS service fails."""
         mock_ipfs_service.get_file.side_effect = Exception("IPFS connection failed")
 
@@ -241,7 +255,9 @@ class TestFileUpdateEndpoint:
             "tags": ["updated", "test"],
         }
 
-        response = test_client.put(f"/api/files/{sample_file_record.cid}", json=update_data)
+        response = test_client.put(
+            f"/api/files/{sample_file_record.cid}", json=update_data
+        )
 
         assert response.status_code == 200
         result = response.json()
@@ -253,7 +269,9 @@ class TestFileUpdateEndpoint:
         """Test partial file metadata update."""
         update_data = {"description": "Only description updated"}
 
-        response = test_client.put(f"/api/files/{sample_file_record.cid}", json=update_data)
+        response = test_client.put(
+            f"/api/files/{sample_file_record.cid}", json=update_data
+        )
 
         assert response.status_code == 200
         result = response.json()
@@ -276,7 +294,9 @@ class TestFileUpdateEndpoint:
         """Test update with invalid metadata."""
         update_data = {"filename": ""}  # Empty filename should fail validation
 
-        response = test_client.put(f"/api/files/{sample_file_record.cid}", json=update_data)
+        response = test_client.put(
+            f"/api/files/{sample_file_record.cid}", json=update_data
+        )
 
         assert response.status_code == 422  # Validation error
 
@@ -295,7 +315,9 @@ class TestFileDeleteEndpoint:
         assert "deleted successfully" in result["message"]
         assert not result["unpinned"]  # Default unpin=False
 
-    def test_delete_file_with_unpin(self, test_client, sample_file_record, mock_ipfs_service):
+    def test_delete_file_with_unpin(
+        self, test_client, sample_file_record, mock_ipfs_service
+    ):
         """Test file deletion with unpinning."""
         response = test_client.delete(f"/api/files/{sample_file_record.cid}?unpin=true")
 
@@ -318,7 +340,9 @@ class TestFileDeleteEndpoint:
 class TestFileStatsEndpoint:
     """Test file statistics API endpoint."""
 
-    def test_get_file_stats_success(self, test_client, sample_file_record, mock_ipfs_service):
+    def test_get_file_stats_success(
+        self, test_client, sample_file_record, mock_ipfs_service
+    ):
         """Test successful file stats retrieval."""
         response = test_client.get(f"/api/files/{sample_file_record.cid}/stats")
 
@@ -331,7 +355,9 @@ class TestFileStatsEndpoint:
         assert "blocks" in result
         assert "type" in result
 
-    def test_get_file_stats_ipfs_error(self, test_client, sample_file_record, mock_ipfs_service):
+    def test_get_file_stats_ipfs_error(
+        self, test_client, sample_file_record, mock_ipfs_service
+    ):
         """Test file stats when IPFS service fails."""
         mock_ipfs_service.get_file_stats.side_effect = Exception("IPFS stats failed")
 
@@ -355,7 +381,9 @@ class TestFilePinEndpoints:
         assert "pinned successfully" in result["message"]
         mock_ipfs_service.pin_file.assert_called_once_with(sample_file_record.cid)
 
-    def test_pin_file_ipfs_error(self, test_client, sample_file_record, mock_ipfs_service):
+    def test_pin_file_ipfs_error(
+        self, test_client, sample_file_record, mock_ipfs_service
+    ):
         """Test file pinning when IPFS service fails."""
         mock_ipfs_service.pin_file.return_value = False
 
@@ -364,7 +392,9 @@ class TestFilePinEndpoints:
         assert response.status_code == 500
         assert "Failed to pin file" in response.json()["detail"]
 
-    def test_unpin_file_success(self, test_client, sample_file_record, mock_ipfs_service):
+    def test_unpin_file_success(
+        self, test_client, sample_file_record, mock_ipfs_service
+    ):
         """Test successful file unpinning."""
         response = test_client.delete(f"/api/files/{sample_file_record.cid}/pin")
 
@@ -375,7 +405,9 @@ class TestFilePinEndpoints:
         assert "unpinned successfully" in result["message"]
         mock_ipfs_service.unpin_file.assert_called_once_with(sample_file_record.cid)
 
-    def test_unpin_file_ipfs_error(self, test_client, sample_file_record, mock_ipfs_service):
+    def test_unpin_file_ipfs_error(
+        self, test_client, sample_file_record, mock_ipfs_service
+    ):
         """Test file unpinning when IPFS service fails."""
         mock_ipfs_service.unpin_file.return_value = False
 
@@ -413,7 +445,9 @@ class TestHealthAndInfoEndpoints:
 
     def test_system_info_ipfs_error(self, test_client, mock_ipfs_service):
         """Test system info when IPFS service fails."""
-        mock_ipfs_service.get_node_info.side_effect = Exception("IPFS connection failed")
+        mock_ipfs_service.get_node_info.side_effect = Exception(
+            "IPFS connection failed"
+        )
 
         response = test_client.get("/info")
 
@@ -464,10 +498,14 @@ class TestErrorHandling:
 class TestFileWorkflow:
     """Integration tests for complete file workflows."""
 
-    def test_complete_file_lifecycle(self, test_client, mock_ipfs_service, test_file_content):
+    def test_complete_file_lifecycle(
+        self, test_client, mock_ipfs_service, test_file_content
+    ):
         """Test complete file lifecycle: upload -> list -> info -> update -> delete."""
         # 1. Upload file
-        files = {"file": ("lifecycle_test.txt", BytesIO(test_file_content), "text/plain")}
+        files = {
+            "file": ("lifecycle_test.txt", BytesIO(test_file_content), "text/plain")
+        }
         upload_response = test_client.post("/api/files/upload", files=files)
         assert upload_response.status_code == 200
 
