@@ -319,6 +319,28 @@ async def get_system_info(api_key: str = Depends(verify_api_key_flexible)):
         raise HTTPException(status_code=500, detail=msg) from e
 
 
+def _clear_log_file(file_path: str) -> bool:
+    """Clear a single log file and return True if successful."""
+    if os.path.exists(file_path):
+        open(file_path, "w").close()
+        return True
+    return False
+
+def _clear_all_logs(logs_dir: str) -> list[str]:
+    """Clear all .log files in the directory and return list of cleared files."""
+    files_cleared = []
+    for log_file in os.listdir(logs_dir):
+        if log_file.endswith(".log"):
+            file_path = os.path.join(logs_dir, log_file)
+            if _clear_log_file(file_path):
+                files_cleared.append(log_file)
+    return files_cleared
+
+def _clear_specific_log(logs_dir: str, log_file: str) -> list[str]:
+    """Clear a specific log file and return list containing the file if cleared."""
+    file_path = os.path.join(logs_dir, log_file)
+    return [log_file] if _clear_log_file(file_path) else []
+
 @router.post("/system/clear-logs")
 async def clear_logs(
     log_type: str = Query(
@@ -339,29 +361,16 @@ async def clear_logs(
         if not os.path.exists(logs_dir):
             raise HTTPException(status_code=404, detail="Logs directory not found")
 
-        files_cleared = []
+        log_files = {
+            "access": "access.log",
+            "errors": "errors.log",
+            "main": "ipfs_storage.log"
+        }
 
-        if log_type == "all":
-            for log_file in os.listdir(logs_dir):
-                if log_file.endswith(".log"):
-                    file_path = os.path.join(logs_dir, log_file)
-                    open(file_path, "w").close()  # Truncate file
-                    files_cleared.append(log_file)
-        elif log_type == "access":
-            file_path = os.path.join(logs_dir, "access.log")
-            if os.path.exists(file_path):
-                open(file_path, "w").close()
-                files_cleared.append("access.log")
-        elif log_type == "errors":
-            file_path = os.path.join(logs_dir, "errors.log")
-            if os.path.exists(file_path):
-                open(file_path, "w").close()
-                files_cleared.append("errors.log")
-        elif log_type == "main":
-            file_path = os.path.join(logs_dir, "ipfs_storage.log")
-            if os.path.exists(file_path):
-                open(file_path, "w").close()
-                files_cleared.append("ipfs_storage.log")
+        files_cleared = (
+            _clear_all_logs(logs_dir) if log_type == "all"
+            else _clear_specific_log(logs_dir, log_files[log_type])
+        )
 
         return {
             "message": f"Cleared {log_type} logs",
