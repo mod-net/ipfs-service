@@ -7,7 +7,7 @@ Provides API key authentication for protected endpoints.
 import hashlib
 import secrets
 
-from fastapi import Depends, Header, HTTPException
+from fastapi import Header, HTTPException
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
 from app.config import get_settings

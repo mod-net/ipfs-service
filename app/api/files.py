@@ -6,7 +6,7 @@ Provides REST API for file upload, retrieval, search, and management operations.
 
 import json
 
-from fastapi import APIRouter, Depends, File, HTTPException, Query, Request, UploadFile
+from fastapi import APIRouter, HTTPException, Query, Request, UploadFile
 from fastapi.responses import StreamingResponse
 
 from app.config import get_settings
