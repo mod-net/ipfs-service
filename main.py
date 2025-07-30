@@ -11,14 +11,14 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 
 import uvicorn
-from fastapi import FastAPI, Request
+from fastapi import Depends, FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from app.api.admin import router as admin_router
-from app.api.files import router as files_router
+from app.api.files import get_ipfs_service, router as files_router
 from app.auth import get_current_api_key
 from app.config import get_settings
 from app.database import init_db
@@ -144,7 +144,7 @@ async def health_check():
 
 
 @app.get("/info")
-async def system_info(ipfs_service: IPFSService):
+async def system_info(ipfs_service: IPFSService = Depends(get_ipfs_service)):
     """Get system information."""
     try:
         node_info = await ipfs_service.get_node_info()

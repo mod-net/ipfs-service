@@ -6,7 +6,7 @@ Provides REST API for file upload, retrieval, search, and management operations.
 
 import json
 
-from fastapi import APIRouter, HTTPException, Query, Request, UploadFile
+from fastapi import APIRouter, Depends, HTTPException, Query, Request, UploadFile
 from fastapi.responses import StreamingResponse
 
 from app.config import get_settings
@@ -60,11 +60,11 @@ def file_record_to_metadata(
 @router.post("/files/upload", response_model=FileUploadResponse)
 async def upload_file(
     request: Request,
-    ipfs_service: IPFSService,
-    db_service: DatabaseService,
     file: UploadFile,
     description: str | None = Query(None, description="File description"),
     tags: str | None = Query(None, description="Comma-separated tags"),
+    ipfs_service: IPFSService = Depends(get_ipfs_service),
+    db_service: DatabaseService = Depends(get_database_service),
 ):
     """
     Upload a file to IPFS and store metadata in database.
@@ -137,8 +137,8 @@ async def upload_file(
 @router.get("/files/{cid}")
 async def download_file(
     cid: str,
-    ipfs_service: IPFSService,
-    db_service: DatabaseService,
+    ipfs_service: IPFSService = Depends(get_ipfs_service),
+    db_service: DatabaseService = Depends(get_database_service),
 ):
     """
     Download a file by its IPFS CID.
@@ -176,10 +176,10 @@ async def download_file(
 
 @router.get("/files/", response_model=FileListResponse)
 async def list_files(
-    ipfs_service: IPFSService,
-    db_service: DatabaseService,
     skip: int = Query(0, ge=0, description="Number of files to skip"),
     limit: int = Query(50, ge=1, le=100, description="Maximum files to return"),
+    ipfs_service: IPFSService = Depends(get_ipfs_service),
+    db_service: DatabaseService = Depends(get_database_service),
 ):
     """
     List all files with pagination.
@@ -209,8 +209,8 @@ async def list_files(
 @router.get("/files/{cid}/info", response_model=FileMetadata)
 async def get_file_info(
     cid: str,
-    ipfs_service: IPFSService,
-    db_service: DatabaseService,
+    ipfs_service: IPFSService = Depends(get_ipfs_service),
+    db_service: DatabaseService = Depends(get_database_service),
 ):
     """
     Get file metadata by CID.
@@ -235,8 +235,8 @@ async def get_file_info(
 @router.post("/files/search", response_model=FileListResponse)
 async def search_files(
     search_request: FileSearchRequest,
-    ipfs_service: IPFSService,
-    db_service: DatabaseService,
+    ipfs_service: IPFSService = Depends(get_ipfs_service),
+    db_service: DatabaseService = Depends(get_database_service),
 ):
     """
     Search files by filename or description.
@@ -274,8 +274,8 @@ async def search_files(
 async def update_file_metadata(
     cid: str,
     update_request: FileUpdateRequest,
-    ipfs_service: IPFSService,
-    db_service: DatabaseService,
+    ipfs_service: IPFSService = Depends(get_ipfs_service),
+    db_service: DatabaseService = Depends(get_database_service),
 ):
     """
     Update file metadata (filename, description, tags).
@@ -327,9 +327,9 @@ async def update_file_metadata(
 @router.delete("/files/{cid}")
 async def delete_file(
     cid: str,
-    ipfs_service: IPFSService,
-    db_service: DatabaseService,
     unpin: bool = Query(False, description="Whether to unpin from IPFS"),
+    ipfs_service: IPFSService = Depends(get_ipfs_service),
+    db_service: DatabaseService = Depends(get_database_service),
 ):
     """
     Delete file metadata from database and optionally unpin from IPFS.
@@ -363,7 +363,9 @@ async def delete_file(
 
 @router.get("/files/{cid}/stats", response_model=FileStatsResponse)
 async def get_file_stats(
-    cid: str, ipfs_service: IPFSService, db_service: DatabaseService
+    cid: str,
+    ipfs_service: IPFSService = Depends(get_ipfs_service),
+    db_service: DatabaseService = Depends(get_database_service),
 ):
     """
     Get IPFS statistics for a file.
@@ -391,8 +393,8 @@ async def get_file_stats(
 @router.post("/files/{cid}/pin")
 async def pin_file(
     cid: str,
-    ipfs_service: IPFSService,
-    db_service: DatabaseService,
+    ipfs_service: IPFSService = Depends(get_ipfs_service),
+    db_service: DatabaseService = Depends(get_database_service),
 ):
     """
     Pin a file in IPFS to prevent garbage collection.
@@ -430,8 +432,8 @@ async def pin_file(
 @router.delete("/files/{cid}/pin")
 async def unpin_file(
     cid: str,
-    ipfs_service: IPFSService,
-    db_service: DatabaseService,
+    ipfs_service: IPFSService = Depends(get_ipfs_service),
+    db_service: DatabaseService = Depends(get_database_service),
 ):
     """
     Unpin a file in IPFS to allow garbage collection.
