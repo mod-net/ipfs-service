@@ -60,7 +60,9 @@ class TestIPFSService:
     @pytest.mark.asyncio
     async def test_get_node_info_connection_error(self, ipfs_service):
         """Test IPFS node info retrieval with connection error."""
-        with patch.object(ipfs_service, "_get_client", side_effect=Exception("Connection failed")):
+        with patch.object(
+            ipfs_service, "_get_client", side_effect=Exception("Connection failed")
+        ):
             with pytest.raises(HTTPException) as exc_info:
                 await ipfs_service.get_node_info()
 
@@ -68,7 +70,9 @@ class TestIPFSService:
             assert "Failed to get IPFS node info" in str(exc_info.value.detail)
 
     @pytest.mark.asyncio
-    async def test_add_file_success(self, ipfs_service, mock_ipfs_client, mock_upload_file):
+    async def test_add_file_success(
+        self, ipfs_service, mock_ipfs_client, mock_upload_file
+    ):
         """Test successful file addition to IPFS."""
         with patch.object(ipfs_service, "_get_client", return_value=mock_ipfs_client):
             result = await ipfs_service.add_file(mock_upload_file)
@@ -172,7 +176,12 @@ class TestIPFSService:
     @pytest.mark.asyncio
     async def test_get_file_stats_success(self, ipfs_service, mock_ipfs_client):
         """Test successful file statistics retrieval."""
-        expected_stats = {"DataSize": 1024, "CumulativeSize": 1024, "NumLinks": 0, "Type": "file"}
+        expected_stats = {
+            "DataSize": 1024,
+            "CumulativeSize": 1024,
+            "NumLinks": 0,
+            "Type": "file",
+        }
         mock_ipfs_client.object.stat.return_value = expected_stats
 
         with patch.object(ipfs_service, "_get_client", return_value=mock_ipfs_client):
@@ -358,7 +367,8 @@ class TestDatabaseService:
         # All returned files should match the search query
         for file_record in files:
             assert search_query.lower() in file_record.filename.lower() or (
-                file_record.description and search_query.lower() in file_record.description.lower()
+                file_record.description
+                and search_query.lower() in file_record.description.lower()
             )
 
     def test_search_files_by_description(self, db_service, multiple_file_records):
@@ -377,7 +387,9 @@ class TestDatabaseService:
                 ):
                     found_match = True
                     break
-            assert found_match or any(search_query.lower() in f.filename.lower() for f in files)
+            assert found_match or any(
+                search_query.lower() in f.filename.lower() for f in files
+            )
 
     def test_search_files_no_results(self, db_service, multiple_file_records):
         """Test file search with no matching results."""
@@ -480,7 +492,9 @@ class TestServiceIntegration:
 
     @pytest.mark.integration
     @pytest.mark.asyncio
-    async def test_file_upload_integration(self, mock_ipfs_service, db_service, mock_upload_file):
+    async def test_file_upload_integration(
+        self, mock_ipfs_service, db_service, mock_upload_file
+    ):
         """Test complete file upload workflow."""
         # 1. Add file to IPFS
         ipfs_result = await mock_ipfs_service.add_file(mock_upload_file)

@@ -4,13 +4,19 @@ Database configuration and initialization for IPFS Storage System.
 Handles SQLAlchemy setup, table creation, and database connections.
 """
 
-import asyncio
 from datetime import datetime
-from typing import Optional
 
-from sqlalchemy import Column, Integer, String, DateTime, Text, BigInteger, create_engine, func
+from sqlalchemy import (
+    BigInteger,
+    Column,
+    DateTime,
+    Integer,
+    String,
+    Text,
+    create_engine,
+    func,
+)
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
 
 from app.config import get_settings
@@ -23,7 +29,7 @@ if settings.database_url.startswith("sqlite"):
     engine = create_engine(
         settings.database_url,
         connect_args={"check_same_thread": False},
-        echo=settings.debug
+        echo=settings.debug,
     )
     SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 else:
@@ -36,9 +42,9 @@ Base = declarative_base()
 
 class FileRecord(Base):
     """Database model for storing file metadata."""
-    
+
     __tablename__ = "files"
-    
+
     id = Column(Integer, primary_key=True, index=True)
     cid = Column(String(255), unique=True, index=True, nullable=False)
     filename = Column(String(255), nullable=False)
@@ -50,10 +56,10 @@ class FileRecord(Base):
     tags = Column(Text)  # JSON string of tags
     uploader_ip = Column(String(45))  # IPv4/IPv6 address
     is_pinned = Column(Integer, default=1)  # 1 for pinned, 0 for unpinned
-    
+
     def __repr__(self):
         return f"<FileRecord(cid='{self.cid}', filename='{self.filename}')>"
-    
+
     def to_dict(self):
         """Convert to dictionary for JSON serialization."""
         return {
@@ -67,7 +73,7 @@ class FileRecord(Base):
             "description": self.description,
             "tags": self.tags,
             "uploader_ip": self.uploader_ip,
-            "is_pinned": bool(self.is_pinned)
+            "is_pinned": bool(self.is_pinned),
         }
 
 
@@ -93,24 +99,24 @@ def get_db():
 
 class DatabaseService:
     """Service class for database operations."""
-    
+
     def __init__(self):
         self.SessionLocal = SessionLocal
-    
+
     def get_session(self):
         """Get a new database session."""
         return self.SessionLocal()
-    
+
     def create_file_record(
         self,
         cid: str,
         filename: str,
         original_filename: str,
-        content_type: Optional[str] = None,
+        content_type: str | None = None,
         size: int = 0,
-        description: Optional[str] = None,
-        tags: Optional[str] = None,
-        uploader_ip: Optional[str] = None
+        description: str | None = None,
+        tags: str | None = None,
+        uploader_ip: str | None = None,
     ) -> FileRecord:
         """Create a new file record in the database."""
         db = self.get_session()
@@ -123,7 +129,7 @@ class DatabaseService:
                 size=size,
                 description=description,
                 tags=tags,
-                uploader_ip=uploader_ip
+                uploader_ip=uploader_ip,
             )
             db.add(file_record)
             db.commit()
@@ -134,23 +140,23 @@ class DatabaseService:
             raise e
         finally:
             db.close()
-    
-    def get_file_by_cid(self, cid: str) -> Optional[FileRecord]:
+
+    def get_file_by_cid(self, cid: str) -> FileRecord | None:
         """Get file record by CID."""
         db = self.get_session()
         try:
             return db.query(FileRecord).filter(FileRecord.cid == cid).first()
         finally:
             db.close()
-    
-    def get_file_by_id(self, file_id: int) -> Optional[FileRecord]:
+
+    def get_file_by_id(self, file_id: int) -> FileRecord | None:
         """Get file record by ID."""
         db = self.get_session()
         try:
             return db.query(FileRecord).filter(FileRecord.id == file_id).first()
         finally:
             db.close()
-    
+
     def get_all_files(self, skip: int = 0, limit: int = 100) -> list[FileRecord]:
         """Get all file records with pagination."""
         db = self.get_session()
@@ -158,8 +164,10 @@ class DatabaseService:
             return db.query(FileRecord).offset(skip).limit(limit).all()
         finally:
             db.close()
-    
-    def list_files(self, skip: int = 0, limit: int = 50) -> tuple[list[FileRecord], int]:
+
+    def list_files(
+        self, skip: int = 0, limit: int = 50
+    ) -> tuple[list[FileRecord], int]:
         """List files with pagination, returning (files, total_count)."""
         db = self.get_session()
         try:
@@ -168,23 +176,25 @@ class DatabaseService:
             return files, total
         finally:
             db.close()
-    
-    def search_files(self, query: str, skip: int = 0, limit: int = 100) -> tuple[list[FileRecord], int]:
+
+    def search_files(
+        self, query: str, skip: int = 0, limit: int = 100
+    ) -> tuple[list[FileRecord], int]:
         """Search files by filename or description, returning (files, total_count)."""
         db = self.get_session()
         try:
             base_query = db.query(FileRecord).filter(
-                (FileRecord.filename.contains(query)) |
-                (FileRecord.original_filename.contains(query)) |
-                (FileRecord.description.contains(query))
+                (FileRecord.filename.contains(query))
+                | (FileRecord.original_filename.contains(query))
+                | (FileRecord.description.contains(query))
             )
             total = base_query.count()
             files = base_query.offset(skip).limit(limit).all()
             return files, total
         finally:
             db.close()
-    
-    def update_file_record(self, cid: str, updates: dict) -> Optional[FileRecord]:
+
+    def update_file_record(self, cid: str, updates: dict) -> FileRecord | None:
         """Update file record by CID."""
         db = self.get_session()
         try:
@@ -202,7 +212,7 @@ class DatabaseService:
             raise e
         finally:
             db.close()
-    
+
     def delete_file_record(self, cid: str) -> bool:
         """Delete file record by CID."""
         db = self.get_session()
@@ -218,7 +228,7 @@ class DatabaseService:
             raise e
         finally:
             db.close()
-    
+
     def get_file_count(self) -> int:
         """Get total number of files."""
         db = self.get_session()
@@ -226,7 +236,7 @@ class DatabaseService:
             return db.query(FileRecord).count()
         finally:
             db.close()
-    
+
     def get_total_size(self) -> int:
         """Get total size of all files."""
         db = self.get_session()

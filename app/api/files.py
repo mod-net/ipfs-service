@@ -37,7 +37,9 @@ def get_database_service():
     return DatabaseService()
 
 
-def file_record_to_metadata(file_record: FileRecord, ipfs_service: IPFSService) -> FileMetadata:
+def file_record_to_metadata(
+    file_record: FileRecord, ipfs_service: IPFSService
+) -> FileMetadata:
     """Convert FileRecord to FileMetadata with gateway URL."""
     return FileMetadata(
         id=file_record.id,
@@ -81,7 +83,9 @@ async def upload_file(
         ipfs_result = await ipfs_service.add_file(file)
         upload_duration = time.time() - start_time
 
-        logger.info(f"✅ IPFS upload successful: {ipfs_result['cid']} ({upload_duration:.3f}s)")
+        logger.info(
+            f"✅ IPFS upload successful: {ipfs_result['cid']} ({upload_duration:.3f}s)"
+        )
         log_ipfs_operation("UPLOAD", ipfs_result["cid"], True, duration=upload_duration)
 
         # Get client IP
@@ -110,7 +114,9 @@ async def upload_file(
             "UPLOAD", file_record.cid, file_record.filename, file_record.size, client_ip
         )
 
-        logger.info(f"📁 File metadata stored: {file_record.filename} -> {file_record.cid}")
+        logger.info(
+            f"📁 File metadata stored: {file_record.filename} -> {file_record.cid}"
+        )
 
         return FileUploadResponse(
             cid=file_record.cid,
@@ -191,7 +197,9 @@ async def list_files(
             file_record_to_metadata(file_record, ipfs_service) for file_record in files
         ]
 
-        return FileListResponse(files=file_metadata, total=total, skip=skip, limit=limit)
+        return FileListResponse(
+            files=file_metadata, total=total, skip=skip, limit=limit
+        )
 
     except Exception as e:
         msg = f"Failed to list files: {str(e)}"
@@ -240,7 +248,9 @@ async def search_files(
     try:
         # Search files in database
         files, total = db_service.search_files(
-            query=search_request.query, skip=search_request.skip, limit=search_request.limit
+            query=search_request.query,
+            skip=search_request.skip,
+            limit=search_request.limit,
         )
 
         # Convert to metadata objects
@@ -249,7 +259,10 @@ async def search_files(
         ]
 
         return FileListResponse(
-            files=file_metadata, total=total, skip=search_request.skip, limit=search_request.limit
+            files=file_metadata,
+            total=total,
+            skip=search_request.skip,
+            limit=search_request.limit,
         )
 
     except Exception as e:
@@ -289,7 +302,9 @@ async def update_file_metadata(
                 file_record.description = update_request.description
 
             if update_request.tags is not None:
-                file_record.tags = json.dumps(update_request.tags) if update_request.tags else None
+                file_record.tags = (
+                    json.dumps(update_request.tags) if update_request.tags else None
+                )
 
             db.commit()
             db.refresh(file_record)
@@ -348,9 +363,7 @@ async def delete_file(
 
 @router.get("/files/{cid}/stats", response_model=FileStatsResponse)
 async def get_file_stats(
-    cid: str,
-    ipfs_service: IPFSService,
-    db_service: DatabaseService
+    cid: str, ipfs_service: IPFSService, db_service: DatabaseService
 ):
     """
     Get IPFS statistics for a file.
@@ -429,7 +442,9 @@ async def unpin_file(
         # Unpin from IPFS
         success = await ipfs_service.unpin_file(cid)
         if not success:
-            raise HTTPException(status_code=500, detail="Failed to unpin file from IPFS")
+            raise HTTPException(
+                status_code=500, detail="Failed to unpin file from IPFS"
+            )
 
         # Update database record
         file_record = db_service.get_file_by_cid(cid)

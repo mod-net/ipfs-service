@@ -16,7 +16,12 @@ from pydantic import BaseModel, Field
 from app.auth import get_current_api_key, verify_api_key_flexible
 from app.config import get_settings
 from app.database import DatabaseService
-from app.logging_config import get_log_files, get_logger, log_system_event, read_log_file
+from app.logging_config import (
+    get_log_files,
+    get_logger,
+    log_system_event,
+    read_log_file,
+)
 from app.services.ipfs import IPFSService
 
 router = APIRouter()
@@ -87,7 +92,11 @@ async def health_check():
         db_status = {"status": "unknown", "error": None}
         try:
             file_count = db_service.get_file_count()
-            db_status = {"status": "healthy", "file_count": file_count, "connection": "ok"}
+            db_status = {
+                "status": "healthy",
+                "file_count": file_count,
+                "connection": "ok",
+            }
         except Exception as e:
             db_status = {"status": "unhealthy", "error": str(e), "connection": "failed"}
 
@@ -103,7 +112,11 @@ async def health_check():
                 "connection": "ok",
             }
         except Exception as e:
-            ipfs_status = {"status": "unhealthy", "error": str(e), "connection": "failed"}
+            ipfs_status = {
+                "status": "unhealthy",
+                "error": str(e),
+                "connection": "failed",
+            }
 
         # Storage health
         storage_status = {"status": "unknown", "error": None}
@@ -116,7 +129,9 @@ async def health_check():
             storage_info = {
                 "status": "healthy",
                 "database_exists": os.path.exists(db_path),
-                "database_size": os.path.getsize(db_path) if os.path.exists(db_path) else 0,
+                "database_size": (
+                    os.path.getsize(db_path) if os.path.exists(db_path) else 0
+                ),
                 "logs_directory": os.path.exists("logs"),
                 "disk_usage": {},
             }
@@ -185,7 +200,9 @@ async def health_check():
         )
 
         check_duration = time.time() - start_time
-        logger.info(f"🏥 Health check completed: {overall_status} ({check_duration:.3f}s)")
+        logger.info(
+            f"🏥 Health check completed: {overall_status} ({check_duration:.3f}s)"
+        )
 
         return health_response
 
@@ -326,6 +343,7 @@ def _clear_log_file(file_path: str) -> bool:
         return True
     return False
 
+
 def _clear_all_logs(logs_dir: str) -> list[str]:
     """Clear all .log files in the directory and return list of cleared files."""
     files_cleared = []
@@ -336,10 +354,12 @@ def _clear_all_logs(logs_dir: str) -> list[str]:
                 files_cleared.append(log_file)
     return files_cleared
 
+
 def _clear_specific_log(logs_dir: str, log_file: str) -> list[str]:
     """Clear a specific log file and return list containing the file if cleared."""
     file_path = os.path.join(logs_dir, log_file)
     return [log_file] if _clear_log_file(file_path) else []
+
 
 @router.post("/system/clear-logs")
 async def clear_logs(
@@ -364,11 +384,12 @@ async def clear_logs(
         log_files = {
             "access": "access.log",
             "errors": "errors.log",
-            "main": "ipfs_storage.log"
+            "main": "ipfs_storage.log",
         }
 
         files_cleared = (
-            _clear_all_logs(logs_dir) if log_type == "all"
+            _clear_all_logs(logs_dir)
+            if log_type == "all"
             else _clear_specific_log(logs_dir, log_files[log_type])
         )
 
@@ -422,7 +443,8 @@ async def get_metrics(api_key: str = Depends(verify_api_key_flexible)):
             "ipfs_storage_memory_usage_percent": memory.percent,
             "ipfs_storage_cpu_usage_percent": cpu_percent,
             "ipfs_storage_disk_usage_bytes": disk_usage.used,
-            "ipfs_storage_disk_usage_percent": (disk_usage.used / disk_usage.total) * 100,
+            "ipfs_storage_disk_usage_percent": (disk_usage.used / disk_usage.total)
+            * 100,
             "ipfs_storage_ipfs_connected": 1 if ipfs_connected else 0,
             "ipfs_storage_health_status": 1,  # 1 for healthy, 0 for unhealthy
         }

@@ -31,7 +31,9 @@ class APIKeyAuth:
         """Get API key from environment or generate a new one."""
         if settings.secret_key:
             # Use the secret key as base for API key
-            return hashlib.sha256(f"ipfs_api_{settings.secret_key}".encode()).hexdigest()[:32]
+            return hashlib.sha256(
+                f"ipfs_api_{settings.secret_key}".encode()
+            ).hexdigest()[:32]
         else:
             # Generate a random API key
             api_key = secrets.token_urlsafe(32)
@@ -67,7 +69,9 @@ async def verify_api_key_header(x_api_key: str | None = Header(None)) -> str:
     if not auth_handler.verify_api_key(x_api_key):
         logger.warning(f"🚫 Invalid API key attempted: {x_api_key[:8]}...")
         raise HTTPException(
-            status_code=401, detail="Invalid API key", headers={"WWW-Authenticate": "Bearer"}
+            status_code=401,
+            detail="Invalid API key",
+            headers={"WWW-Authenticate": "Bearer"},
         )
 
     logger.debug("✅ Valid API key authenticated")
@@ -87,9 +91,13 @@ async def verify_api_key_bearer(
         )
 
     if not auth_handler.verify_api_key(credentials.credentials):
-        logger.warning(f"🚫 Invalid bearer token attempted: {credentials.credentials[:8]}...")
+        logger.warning(
+            f"🚫 Invalid bearer token attempted: {credentials.credentials[:8]}..."
+        )
         raise HTTPException(
-            status_code=401, detail="Invalid API key", headers={"WWW-Authenticate": "Bearer"}
+            status_code=401,
+            detail="Invalid API key",
+            headers={"WWW-Authenticate": "Bearer"},
         )
 
     logger.debug("✅ Valid bearer token authenticated")
