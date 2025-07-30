@@ -262,11 +262,11 @@ async def get_log_content(
             timestamp=datetime.utcnow(),
         )
 
-    except FileNotFoundError:
+    except FileNotFoundError as e:
         logger.warning(f"📁 Log file not found: {filename}")
         msg = f"Log file '{filename}' not found"
         raise HTTPException(status_code=404, detail=msg) from e
-    except PermissionError:
+    except PermissionError as e:
         logger.error(f"🚫 Permission denied reading log file: {filename}")
         msg = f"Permission denied reading '{filename}'"
         raise HTTPException(status_code=403, detail=msg) from e

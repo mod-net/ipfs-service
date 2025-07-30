@@ -58,9 +58,9 @@ def file_record_to_metadata(file_record: FileRecord, ipfs_service: IPFSService) 
 @router.post("/files/upload", response_model=FileUploadResponse)
 async def upload_file(
     request: Request,
-    file: UploadFile = File(...),
     ipfs_service: IPFSService,
     db_service: DatabaseService,
+    file: UploadFile,
     description: str | None = Query(None, description="File description"),
     tags: str | None = Query(None, description="Comma-separated tags"),
 ):
@@ -124,7 +124,8 @@ async def upload_file(
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Upload failed: {str(e)}")
+        msg = f"Upload failed: {str(e)}"
+        raise HTTPException(status_code=500, detail=msg) from e
 
 
 @router.get("/files/{cid}")
@@ -163,7 +164,8 @@ async def download_file(
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Download failed: {str(e)}")
+        msg = f"Download failed: {str(e)}"
+        raise HTTPException(status_code=500, detail=msg) from e
 
 
 @router.get("/files/", response_model=FileListResponse)
@@ -192,7 +194,8 @@ async def list_files(
         return FileListResponse(files=file_metadata, total=total, skip=skip, limit=limit)
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to list files: {str(e)}")
+        msg = f"Failed to list files: {str(e)}"
+        raise HTTPException(status_code=500, detail=msg) from e
 
 
 @router.get("/files/{cid}/info", response_model=FileMetadata)
@@ -217,7 +220,8 @@ async def get_file_info(
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to get file info: {str(e)}")
+        msg = f"Failed to get file info: {str(e)}"
+        raise HTTPException(status_code=500, detail=msg) from e
 
 
 @router.post("/files/search", response_model=FileListResponse)
@@ -345,8 +349,8 @@ async def delete_file(
 @router.get("/files/{cid}/stats", response_model=FileStatsResponse)
 async def get_file_stats(
     cid: str,
-    ipfs_service: IPFSService = Depends(lambda: get_ipfs_service()),
-    db_service: DatabaseService = Depends(lambda: get_database_service())
+    ipfs_service: IPFSService,
+    db_service: DatabaseService
 ):
     """
     Get IPFS statistics for a file.

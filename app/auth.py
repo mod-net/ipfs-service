@@ -75,7 +75,7 @@ async def verify_api_key_header(x_api_key: str | None = Header(None)) -> str:
 
 
 async def verify_api_key_bearer(
-    credentials: HTTPAuthorizationCredentials | None = Depends(security),
+    credentials: HTTPAuthorizationCredentials | None,
 ) -> str:
     """Dependency to verify API key from Bearer token."""
     if not credentials:
@@ -97,7 +97,7 @@ async def verify_api_key_bearer(
 
 
 async def verify_api_key_flexible(
-    credentials: HTTPAuthorizationCredentials | None = Depends(security),
+    credentials: HTTPAuthorizationCredentials | None,
     x_api_key: str | None = Header(None),
 ) -> str:
     """Dependency that accepts API key from either header or bearer token."""
