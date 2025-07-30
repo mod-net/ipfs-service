@@ -18,7 +18,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from app.api.admin import router as admin_router
-from app.api.files import get_ipfs_service, router as files_router
+from app.api.files import get_ipfs_service
+from app.api.files import router as files_router
 from app.auth import get_current_api_key
 from app.config import get_settings
 from app.database import init_db
