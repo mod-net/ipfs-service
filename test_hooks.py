@@ -26,6 +26,12 @@ from typing import Dict, List, Optional
 # Add the app directory to Python path for imports
 sys.path.insert(0, str(Path(__file__).parent / "app"))
 
+# Import required modules
+from fastapi.testclient import TestClient
+from app.config import get_settings
+from app.services.ipfs import IPFSService
+from main import app
+
 
 class Colors:
     """ANSI color codes for terminal output."""
@@ -108,9 +114,17 @@ class TestHooks:
         ]
 
         missing = []
+        # Map package names to their import names
+        import_map = {
+            "python-multipart": "multipart",
+            "pydantic-settings": "pydantic_settings",
+            "ipfshttpclient": "ipfshttpclient"
+        }
+        
         for package in required_packages:
             try:
-                __import__(package.replace("_", "-"))
+                import_name = import_map.get(package, package)
+                __import__(import_name)
             except ImportError:
                 missing.append(package)
 
@@ -182,7 +196,7 @@ class TestHooks:
         """Run the full test suite."""
         self.log("🧪 Running unit tests...", Colors.BLUE)
 
-        success, output = self.run_command(["uv", "run", "pytest", "-v", "--tb=short"])
+        success, output = self.run_command(["uv", "run", "pytest", "-v", "--tb=short", "--timeout=60"])
         if not success:
             self.errors["unit_tests"] = output
             self.log(f"❌ Unit tests failed: {output}", Colors.RED)
@@ -287,7 +301,7 @@ class TestHooks:
             # Test file upload endpoint (without actual IPFS)
             test_file_content = b"Test file content"
             files = {"file": ("test.txt", test_file_content, "text/plain")}
-            response = client.post("/files/upload", files=files)
+            response = client.post("/api/files/upload", files=files)
 
             # This might fail if IPFS daemon is not running, which is OK
             if response.status_code not in [200, 503]:
@@ -310,12 +324,16 @@ class TestHooks:
             from app.models.file import FileListResponse, FileMetadata
 
             # Test model creation
+            from datetime import datetime
             file_metadata = FileMetadata(
+                id=1,
                 cid="QmTest123",
                 filename="test.txt",
-                file_size=100,
+                original_filename="test.txt",
+                size=100,
                 content_type="text/plain",
-                upload_date="2025-01-01T00:00:00Z",
+                upload_date=datetime.fromisoformat("2025-01-01T00:00:00"),
+                gateway_url="http://localhost:8080/ipfs/QmTest123",
             )
 
             # Test model serialization
@@ -324,7 +342,12 @@ class TestHooks:
                 raise ValueError("Model serialization failed")
 
             # Test response model
-            file_list = FileListResponse(files=[file_metadata], total=1)
+            file_list = FileListResponse(
+                files=[file_metadata], 
+                total=1, 
+                skip=0, 
+                limit=50
+            )
             list_data = file_list.model_dump()
             if not isinstance(list_data, dict) or "files" not in list_data:
                 raise ValueError("Response model serialization failed")
