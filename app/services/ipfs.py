@@ -129,9 +129,9 @@ class IPFSService:
             # Get file from IPFS
             loop = asyncio.get_event_loop()
             content_raw = await loop.run_in_executor(None, lambda: client.cat(cid))
-            
+
             # Ensure proper typing - IPFS client.cat returns bytes
-            content: bytes = bytes(content_raw) if content_raw else b''
+            content: bytes = bytes(content_raw) if content_raw else b""
             return content
 
         except Exception as e:
@@ -197,8 +197,10 @@ class IPFSService:
             client = self._get_client()
 
             loop = asyncio.get_event_loop()
-            stats_raw = await loop.run_in_executor(None, lambda: client.object.stat(cid))
-            
+            stats_raw = await loop.run_in_executor(
+                None, lambda: client.object.stat(cid)
+            )
+
             # Ensure proper typing - IPFS client.object.stat returns a dict
             stats: dict[str, Any] = dict(stats_raw) if stats_raw else {}
             return stats

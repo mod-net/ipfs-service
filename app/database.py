@@ -43,6 +43,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 class Base(DeclarativeBase):
     """SQLAlchemy 2.0 style declarative base class."""
+
     pass
 
 
@@ -61,7 +62,9 @@ class FileRecord(Base):
     description: Mapped[Optional[str]] = mapped_column(Text)
     tags: Mapped[Optional[str]] = mapped_column(Text)  # JSON string of tags
     uploader_ip: Mapped[Optional[str]] = mapped_column(String(45))  # IPv4/IPv6 address
-    is_pinned: Mapped[int] = mapped_column(Integer, default=1)  # 1 for pinned, 0 for unpinned
+    is_pinned: Mapped[int] = mapped_column(
+        Integer, default=1
+    )  # 1 for pinned, 0 for unpinned
 
     def __repr__(self):
         return f"<FileRecord(cid='{self.cid}', filename='{self.filename}')>"
@@ -188,12 +191,12 @@ class DatabaseService:
             count_stmt = select(func.count(FileRecord.id))
             total_result = db.execute(count_stmt)
             total = total_result.scalar() or 0
-            
+
             # Get paginated files
             files_stmt = select(FileRecord).offset(skip).limit(limit)
             files_result = db.execute(files_stmt)
             files = list(files_result.scalars().all())
-            
+
             return files, total
         finally:
             db.close()
@@ -210,17 +213,19 @@ class DatabaseService:
                 | (FileRecord.original_filename.contains(query))
                 | (FileRecord.description.contains(query))
             )
-            
+
             # Get total count
             count_stmt = select(func.count(FileRecord.id)).where(search_condition)
             total_result = db.execute(count_stmt)
             total = total_result.scalar() or 0
-            
+
             # Get paginated results
-            files_stmt = select(FileRecord).where(search_condition).offset(skip).limit(limit)
+            files_stmt = (
+                select(FileRecord).where(search_condition).offset(skip).limit(limit)
+            )
             files_result = db.execute(files_stmt)
             files = list(files_result.scalars().all())
-            
+
             return files, total
         finally:
             db.close()
@@ -233,7 +238,7 @@ class DatabaseService:
             stmt = select(FileRecord).where(FileRecord.cid == cid)
             result = db.execute(stmt)
             file_record = result.scalar_one_or_none()
-            
+
             if file_record:
                 for key, value in updates.items():
                     if hasattr(file_record, key):
@@ -256,7 +261,7 @@ class DatabaseService:
             stmt = select(FileRecord).where(FileRecord.cid == cid)
             result = db.execute(stmt)
             file_record = result.scalar_one_or_none()
-            
+
             if file_record:
                 db.delete(file_record)
                 db.commit()
