@@ -21,7 +21,6 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
-from typing import Dict, List, Optional
 
 from fastapi.testclient import TestClient
 
@@ -55,8 +54,8 @@ class TestHooks:
 
     def __init__(self, verbose: bool = False):
         self.verbose = verbose
-        self.results: Dict[str, bool] = {}
-        self.errors: Dict[str, str] = {}
+        self.results: dict[str, bool] = {}
+        self.errors: dict[str, str] = {}
         self.project_root = Path(__file__).parent
 
     def log(self, message: str, color: str = Colors.WHITE) -> None:
@@ -65,7 +64,7 @@ class TestHooks:
             print(f"{color}{message}{Colors.END}")
 
     def run_command(
-        self, cmd: List[str], cwd: Optional[Path] = None
+        self, cmd: list[str], cwd: Path | None = None
     ) -> tuple[bool, str]:
         """Run a shell command and return success status and output."""
         try:
@@ -259,8 +258,18 @@ class TestHooks:
                     tmp_file.write(test_content)
                     tmp_file.flush()
 
-                    # Test file upload
-                    result = await ipfs_service.add_file(tmp_file.name)
+                    # Test file upload - create UploadFile-like object
+                    import io
+
+                    from fastapi import UploadFile
+
+                    # Create a proper UploadFile object for testing
+                    file_content = io.BytesIO(test_content)
+                    upload_file = UploadFile(
+                        filename="test_file.txt",
+                        file=file_content
+                    )
+                    result = await ipfs_service.add_file(upload_file)
                     cid = result["Hash"]
                     self.log(f"✅ File uploaded to IPFS: {cid}", Colors.GREEN)
 
@@ -334,6 +343,10 @@ class TestHooks:
                 size=100,
                 content_type="text/plain",
                 upload_date=datetime.fromisoformat("2025-01-01T00:00:00"),
+                description="Test file description",
+                tags="test,example",
+                uploader_ip="127.0.0.1",
+                is_pinned=True,
                 gateway_url="http://localhost:8080/ipfs/QmTest123",
             )
 

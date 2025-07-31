@@ -89,12 +89,12 @@ async def health_check():
     try:
         # Database health
         db_service = DatabaseService()
-        db_status = {"status": "unknown", "error": None}
+        db_status: dict[str, Any] = {"status": "unknown", "error": None}
         try:
             file_count = db_service.get_file_count()
             db_status = {
                 "status": "healthy",
-                "file_count": file_count,
+                "file_count": str(file_count),
                 "connection": "ok",
             }
         except Exception as e:
@@ -102,6 +102,7 @@ async def health_check():
 
         # IPFS health
         ipfs_service = IPFSService()
+        ipfs_status: dict[str, Any] = {"status": "unknown", "error": None}
         ipfs_status = {"status": "unknown", "error": None}
         try:
             node_info = await ipfs_service.get_node_info()
@@ -119,7 +120,7 @@ async def health_check():
             }
 
         # Storage health
-        storage_status = {"status": "unknown", "error": None}
+        storage_status: dict[str, Any] = {"status": "unknown", "error": None}
         try:
             # Check database file
             db_path = settings.database_url.replace("sqlite:///", "")
@@ -151,7 +152,7 @@ async def health_check():
             storage_status = {"status": "unhealthy", "error": str(e)}
 
         # System metrics
-        system_status = {"status": "unknown", "error": None}
+        system_status: dict[str, Any] = {"status": "unknown", "error": None}
         try:
             memory = psutil.virtual_memory()
             cpu_percent = psutil.cpu_percent(interval=0.1)

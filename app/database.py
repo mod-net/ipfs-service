@@ -5,11 +5,9 @@ Handles SQLAlchemy setup, table creation, and database connections.
 """
 
 from datetime import datetime
-from typing import List, Optional, Type
 
 from sqlalchemy import (
     BigInteger,
-    Column,
     DateTime,
     Integer,
     String,
@@ -55,12 +53,12 @@ class FileRecord(Base):
     cid: Mapped[str] = mapped_column(String(255), unique=True, index=True)
     filename: Mapped[str] = mapped_column(String(255))
     original_filename: Mapped[str] = mapped_column(String(255))
-    content_type: Mapped[Optional[str]] = mapped_column(String(100))
+    content_type: Mapped[str | None] = mapped_column(String(100))
     size: Mapped[int] = mapped_column(BigInteger)
     upload_date: Mapped[datetime] = mapped_column(DateTime, default=func.now())
-    description: Mapped[Optional[str]] = mapped_column(Text)
-    tags: Mapped[Optional[str]] = mapped_column(Text)  # JSON string of tags
-    uploader_ip: Mapped[Optional[str]] = mapped_column(String(45))  # IPv4/IPv6 address
+    description: Mapped[str | None] = mapped_column(Text)
+    tags: Mapped[str | None] = mapped_column(Text)  # JSON string of tags
+    uploader_ip: Mapped[str | None] = mapped_column(String(45))  # IPv4/IPv6 address
     is_pinned: Mapped[int] = mapped_column(
         Integer, default=1
     )  # 1 for pinned, 0 for unpinned
@@ -150,7 +148,7 @@ class DatabaseService:
         finally:
             db.close()
 
-    def get_file_by_cid(self, cid: str) -> Optional[FileRecord]:
+    def get_file_by_cid(self, cid: str) -> FileRecord | None:
         """Get file record by CID using SQLAlchemy 2.0 style."""
         db = self.get_session()
         try:
@@ -160,7 +158,7 @@ class DatabaseService:
         finally:
             db.close()
 
-    def get_file_by_id(self, file_id: int) -> Optional[FileRecord]:
+    def get_file_by_id(self, file_id: int) -> FileRecord | None:
         """Get file record by ID using SQLAlchemy 2.0 style."""
         db = self.get_session()
         try:
@@ -170,7 +168,7 @@ class DatabaseService:
         finally:
             db.close()
 
-    def get_all_files(self, skip: int = 0, limit: int = 100) -> List[FileRecord]:
+    def get_all_files(self, skip: int = 0, limit: int = 100) -> list[FileRecord]:
         """Get all file records with pagination using SQLAlchemy 2.0 style."""
         db = self.get_session()
         try:
@@ -182,7 +180,7 @@ class DatabaseService:
 
     def list_files(
         self, skip: int = 0, limit: int = 50
-    ) -> tuple[List[FileRecord], int]:
+    ) -> tuple[list[FileRecord], int]:
         """List files with pagination using SQLAlchemy 2.0 style, returning (files, total_count)."""
         db = self.get_session()
         try:
@@ -202,7 +200,7 @@ class DatabaseService:
 
     def search_files(
         self, query: str, skip: int = 0, limit: int = 100
-    ) -> tuple[List[FileRecord], int]:
+    ) -> tuple[list[FileRecord], int]:
         """Search files by filename or description using SQLAlchemy 2.0 style, returning (files, total_count)."""
         db = self.get_session()
         try:
@@ -229,7 +227,7 @@ class DatabaseService:
         finally:
             db.close()
 
-    def update_file_record(self, cid: str, updates: dict) -> Optional[FileRecord]:
+    def update_file_record(self, cid: str, updates: dict) -> FileRecord | None:
         """Update file record by CID using SQLAlchemy 2.0 style."""
         db = self.get_session()
         try:
