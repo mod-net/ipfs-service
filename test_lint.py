@@ -55,8 +55,6 @@ def test_isort():
             "isort",
             ".",
             "--check-only",
-            "--profile",
-            "black",
         ]
     )
 

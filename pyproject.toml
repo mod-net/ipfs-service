@@ -43,9 +43,18 @@ packages = ["app"]
 [tool.black]
 line-length = 88
 target-version = ['py38']
+include = '(app/.*\.py|tests/.*\.py|[^/]+\.py)$'
+exclude = '(test_new/.*|\.venv/.*|build/.*|dist/.*)'
+
 
 [tool.isort]
 profile = "black"
+src_paths = ["app", "tests", "."]
+skip_glob = ["test_new/*", ".venv/*", "build/*", "dist/*"]
+
+[tool.ruff]
+include = ["app/**/*.py", "tests/**/*.py", "*.py"]
+exclude = ["test_new", ".venv", "build", "dist"]
 
 [tool.ruff.lint]
 # Ignore B008 (function call in argument defaults) for FastAPI dependency injection
