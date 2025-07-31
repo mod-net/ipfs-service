@@ -52,7 +52,6 @@ def test_api_health():
     print("🌍 Testing API health...")
     try:
         from fastapi.testclient import TestClient
-
         from main import app
 
         client = TestClient(app)

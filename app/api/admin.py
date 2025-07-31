@@ -10,9 +10,6 @@ from datetime import datetime
 from typing import Any
 
 import psutil
-from fastapi import APIRouter, Depends, HTTPException, Query
-from pydantic import BaseModel, Field
-
 from app.auth import get_current_api_key, verify_api_key_flexible
 from app.config import get_settings
 from app.database import DatabaseService
@@ -23,6 +20,8 @@ from app.logging_config import (
     read_log_file,
 )
 from app.services.ipfs import IPFSService
+from fastapi import APIRouter, Depends, HTTPException, Query
+from pydantic import BaseModel, Field
 
 router = APIRouter()
 settings = get_settings()

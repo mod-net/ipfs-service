@@ -22,6 +22,10 @@ import sys
 import tempfile
 from pathlib import Path
 from typing import Dict, List, Optional
+from app.config import Settings
+from app.services.ipfs import IPFSService
+from main import app
+from fastapi.testclient import TestClient
 
 # Add the app directory to Python path for imports
 sys.path.insert(0, str(Path(__file__).parent / "app"))
@@ -80,10 +84,6 @@ class TestHooks:
 
         try:
             # Test importing main modules
-            from app.config import Settings
-            from app.models.file import FileMetadata
-            from app.services.ipfs import IPFSService
-            from main import app
 
             self.log("✅ All main modules imported successfully", Colors.GREEN)
             return True
@@ -197,7 +197,7 @@ class TestHooks:
 
         try:
             # Test settings loading
-            test_settings = get_settings()
+            test_settings = Settings()
 
             # Validate required settings
             required_attrs = [
