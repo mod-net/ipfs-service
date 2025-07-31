@@ -5,7 +5,9 @@ Handles SQLAlchemy setup, table creation, and database connections.
 """
 
 from datetime import datetime
+from typing import List, Optional, Type
 
+from app.config import get_settings
 from sqlalchemy import (
     BigInteger,
     Column,
@@ -17,11 +19,7 @@ from sqlalchemy import (
     func,
     select,
 )
-from sqlalchemy.orm import DeclarativeBase, sessionmaker, Session, Mapped, mapped_column
-from typing import Optional, List, Type
-from datetime import datetime
-
-from app.config import get_settings
+from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
 
 settings = get_settings()
 

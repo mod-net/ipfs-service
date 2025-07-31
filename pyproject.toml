@@ -50,7 +50,8 @@ exclude = '(test_new/.*|\.venv/.*|build/.*|dist/.*)'
 [tool.isort]
 profile = "black"
 src_paths = ["app", "tests", "."]
-skip_glob = ["test_new/*", ".venv/*", "build/*", "dist/*"]
+skip_glob = ["test_new/*", ".venv/*", "build/*", "dist/*", "**/site-packages/*", "**/.venv/*", "**/venv/*"]
+skip_gitignore = true
 
 [tool.ruff]
 include = ["app/**/*.py", "tests/**/*.py", "*.py"]

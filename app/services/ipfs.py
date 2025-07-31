@@ -10,9 +10,8 @@ from pathlib import Path
 from typing import Any
 
 import ipfshttpclient
-from fastapi import HTTPException, UploadFile
-
 from app.config import get_settings
+from fastapi import HTTPException, UploadFile
 
 settings = get_settings()
 

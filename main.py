@@ -11,12 +11,6 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 
 import uvicorn
-from fastapi import Depends, FastAPI, Request
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
-
 from app.api.admin import router as admin_router
 from app.api.files import get_ipfs_service
 from app.api.files import router as files_router
@@ -30,6 +24,11 @@ from app.logging_config import (
     log_system_event,
 )
 from app.services.ipfs import IPFSService
+from fastapi import Depends, FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 
 # Initialize logging first
 init_logging()

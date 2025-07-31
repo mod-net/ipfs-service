@@ -7,8 +7,6 @@ Tests all request/response models for proper validation and serialization.
 from datetime import datetime
 
 import pytest
-from pydantic import ValidationError
-
 from app.models.file import (
     ErrorResponse,
     FileListResponse,
@@ -20,6 +18,7 @@ from app.models.file import (
     HealthResponse,
     SystemInfoResponse,
 )
+from pydantic import ValidationError
 
 
 class TestFileUploadResponse:
