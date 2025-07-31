@@ -155,3 +155,8 @@ exclude = [
     ".git",
     "__pycache__",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest-cov>=6.2.1",
+]
