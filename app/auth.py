@@ -7,10 +7,11 @@ Provides API key authentication for protected endpoints.
 import hashlib
 import secrets
 
-from app.config import get_settings
-from app.logging_config import get_logger
 from fastapi import Header, HTTPException
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+
+from app.config import get_settings
+from app.logging_config import get_logger
 
 settings = get_settings()
 logger = get_logger(__name__)

@@ -22,19 +22,17 @@ import sys
 import tempfile
 from pathlib import Path
 from typing import Dict, List, Optional
+
+from fastapi.testclient import TestClient
+
 from app.config import Settings
 from app.services.ipfs import IPFSService
 from main import app
-from fastapi.testclient import TestClient
 
 # Add the app directory to Python path for imports
 sys.path.insert(0, str(Path(__file__).parent / "app"))
 
 # Import required modules
-from fastapi.testclient import TestClient
-from app.config import get_settings
-from app.services.ipfs import IPFSService
-from main import app
 
 
 class Colors:
@@ -118,9 +116,9 @@ class TestHooks:
         import_map = {
             "python-multipart": "multipart",
             "pydantic-settings": "pydantic_settings",
-            "ipfshttpclient": "ipfshttpclient"
+            "ipfshttpclient": "ipfshttpclient",
         }
-        
+
         for package in required_packages:
             try:
                 import_name = import_map.get(package, package)
@@ -196,7 +194,9 @@ class TestHooks:
         """Run the full test suite."""
         self.log("🧪 Running unit tests...", Colors.BLUE)
 
-        success, output = self.run_command(["uv", "run", "pytest", "-v", "--tb=short", "--timeout=60"])
+        success, output = self.run_command(
+            ["uv", "run", "pytest", "-v", "--tb=short", "--timeout=60"]
+        )
         if not success:
             self.errors["unit_tests"] = output
             self.log(f"❌ Unit tests failed: {output}", Colors.RED)
@@ -321,10 +321,11 @@ class TestHooks:
         self.log("🗄️ Testing database models...", Colors.BLUE)
 
         try:
-            from app.models.file import FileListResponse, FileMetadata
-
             # Test model creation
             from datetime import datetime
+
+            from app.models.file import FileListResponse, FileMetadata
+
             file_metadata = FileMetadata(
                 id=1,
                 cid="QmTest123",
@@ -343,10 +344,7 @@ class TestHooks:
 
             # Test response model
             file_list = FileListResponse(
-                files=[file_metadata], 
-                total=1, 
-                skip=0, 
-                limit=50
+                files=[file_metadata], total=1, skip=0, limit=50
             )
             list_data = file_list.model_dump()
             if not isinstance(list_data, dict) or "files" not in list_data:
