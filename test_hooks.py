@@ -63,9 +63,7 @@ class TestHooks:
         if self.verbose:
             print(f"{color}{message}{Colors.END}")
 
-    def run_command(
-        self, cmd: list[str], cwd: Path | None = None
-    ) -> tuple[bool, str]:
+    def run_command(self, cmd: list[str], cwd: Path | None = None) -> tuple[bool, str]:
         """Run a shell command and return success status and output."""
         try:
             result = subprocess.run(
@@ -266,8 +264,7 @@ class TestHooks:
                     # Create a proper UploadFile object for testing
                     file_content = io.BytesIO(test_content)
                     upload_file = UploadFile(
-                        filename="test_file.txt",
-                        file=file_content
+                        filename="test_file.txt", file=file_content
                     )
                     result = await ipfs_service.add_file(upload_file)
                     cid = result["Hash"]
