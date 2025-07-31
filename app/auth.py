@@ -21,10 +21,10 @@ security = HTTPBearer(auto_error=False)
 
 
 class APIKeyAuth:
-    """API Key authentication handler."""
+    """API Key authentication handler with proper typing."""
 
-    def __init__(self):
-        self.api_key = self._get_or_generate_api_key()
+    def __init__(self) -> None:
+        self.api_key: str = self._get_or_generate_api_key()
         logger.info("🔐 API key authentication initialized")
 
     def _get_or_generate_api_key(self) -> str:

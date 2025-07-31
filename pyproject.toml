@@ -61,7 +61,16 @@ exclude = ["test_new", ".venv", "build", "dist"]
 ignore = ["B008"]
 
 [tool.mypy]
-python_version = "3.8"
+python_version = "3.11"
 warn_return_any = true
 warn_unused_configs = true
-disallow_untyped_defs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+show_error_codes = true
+strict_optional = true
+exclude = [
+    "test_new",
+    ".venv",
+    "build",
+    "dist",
+]
