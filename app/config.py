@@ -7,20 +7,31 @@ Handles environment variables and application settings.
 import os
 from functools import lru_cache
 
-from pydantic import BaseSettings, Field
+from pydantic import Field
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
     """Application settings with environment variable support."""
 
     # Server Configuration
-    host: str = Field(default_factory=lambda: os.getenv('COMMUNE_IPFS_HOST', 'localhost'))
-    port: int = Field(default_factory=lambda: int(os.getenv('COMMUNE_IPFS_PORT', '8000')))
-    debug: bool = Field(default_factory=lambda: os.getenv('DEBUG', 'false').lower() == 'true')
+    host: str = Field(
+        default_factory=lambda: os.getenv("COMMUNE_IPFS_HOST", "localhost")
+    )
+    port: int = Field(
+        default_factory=lambda: int(os.getenv("COMMUNE_IPFS_PORT", "8000"))
+    )
+    debug: bool = Field(
+        default_factory=lambda: os.getenv("DEBUG", "false").lower() == "true"
+    )
 
     # IPFS Configuration
-    ipfs_api_url: str = Field(default_factory=lambda: os.getenv('IPFS_API_URL', 'http://localhost:5001'))
-    ipfs_gateway_url: str = Field(default_factory=lambda: os.getenv('IPFS_GATEWAY_URL', 'http://localhost:8080'))
+    ipfs_api_url: str = Field(
+        default_factory=lambda: os.getenv("IPFS_API_URL", "http://localhost:5001")
+    )
+    ipfs_gateway_url: str = Field(
+        default_factory=lambda: os.getenv("IPFS_GATEWAY_URL", "http://localhost:8080")
+    )
     ipfs_timeout: int = Field(default=30)
 
     # Database Configuration

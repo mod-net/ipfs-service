@@ -35,11 +35,11 @@ class IPFSService:
                 from urllib.parse import urlparse
 
                 parsed = urlparse(self.api_url)
-                if parsed.scheme == 'http' and parsed.hostname:
+                if parsed.scheme == "http" and parsed.hostname:
                     # Convert hostname to IP for local development
                     hostname = parsed.hostname
-                    if hostname == 'localhost':
-                        hostname = '127.0.0.1'  # Standard loopback IP
+                    if hostname == "localhost":
+                        hostname = "127.0.0.1"  # Standard loopback IP
 
                     port = parsed.port or 5001  # Default IPFS API port
                     addr = f"/ip4/{hostname}/tcp/{port}"
@@ -47,9 +47,7 @@ class IPFSService:
                     # Fallback to original URL for non-HTTP or malformed URLs
                     addr = self.api_url
 
-                self._client = ipfshttpclient.connect(
-                    addr=addr, timeout=self.timeout
-                )
+                self._client = ipfshttpclient.connect(addr=addr, timeout=self.timeout)
             except Exception as e:
                 raise HTTPException(
                     status_code=503,
@@ -130,7 +128,9 @@ class IPFSService:
             msg = f"Failed to add file to IPFS: {str(e)}"
             raise HTTPException(status_code=500, detail=msg) from e
 
-    async def add_json_content(self, content: str, filename: str = "data.json") -> dict[str, Any]:
+    async def add_json_content(
+        self, content: str, filename: str = "data.json"
+    ) -> dict[str, Any]:
         """
         Add JSON content directly to IPFS without file type restrictions.
 
@@ -142,7 +142,7 @@ class IPFSService:
             Dictionary containing CID and upload information
         """
         try:
-            content_bytes = content.encode('utf-8')
+            content_bytes = content.encode("utf-8")
             client = self._get_client()
 
             # Add content to IPFS

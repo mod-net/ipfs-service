@@ -37,14 +37,16 @@ class TestModuleRegistryIntegration:
             public_key="0xabcdef1234567890abcdef1234567890abcdef12",
             chain_type="ed25519",
             created_at=datetime.now().isoformat(),
-            updated_at=datetime.now().isoformat()
+            updated_at=datetime.now().isoformat(),
         )
 
     @pytest.mark.asyncio
     async def test_register_and_retrieve_module(self, client, sample_metadata):
         """Test registering a module and retrieving its metadata."""
         # Register module
-        registration_result = await client.register_module_metadata(sample_metadata, pin=True)
+        registration_result = await client.register_module_metadata(
+            sample_metadata, pin=True
+        )
 
         assert "cid" in registration_result
         assert registration_result["pinned"] is True
@@ -67,7 +69,9 @@ class TestModuleRegistryIntegration:
     async def test_search_modules(self, client, sample_metadata):
         """Test searching for modules."""
         # Register a test module
-        registration_result = await client.register_module_metadata(sample_metadata, pin=True)
+        registration_result = await client.register_module_metadata(
+            sample_metadata, pin=True
+        )
         cid = registration_result["cid"]
 
         try:
@@ -104,7 +108,9 @@ class TestModuleRegistryIntegration:
     async def test_module_stats(self, client, sample_metadata):
         """Test getting module statistics."""
         # Register module
-        registration_result = await client.register_module_metadata(sample_metadata, pin=True)
+        registration_result = await client.register_module_metadata(
+            sample_metadata, pin=True
+        )
         cid = registration_result["cid"]
 
         try:
@@ -124,7 +130,9 @@ class TestModuleRegistryIntegration:
     async def test_unregister_module(self, client, sample_metadata):
         """Test unregistering a module."""
         # Register module
-        registration_result = await client.register_module_metadata(sample_metadata, pin=True)
+        registration_result = await client.register_module_metadata(
+            sample_metadata, pin=True
+        )
         cid = registration_result["cid"]
 
         # Verify it exists
@@ -174,7 +182,7 @@ class TestModuleRegistryIntegration:
             public_key="0x1111111111111111111111111111111111111111",
             chain_type="ed25519",
             created_at=datetime.now().isoformat(),
-            updated_at=datetime.now().isoformat()
+            updated_at=datetime.now().isoformat(),
         )
 
         # Create variations
@@ -195,7 +203,9 @@ class TestModuleRegistryIntegration:
                 registered_cids.append(result["cid"])
 
             # Search by author
-            author_results = await client.search_modules(author="test-author@example.com")
+            author_results = await client.search_modules(
+                author="test-author@example.com"
+            )
 
             # Should find at least our 3 modules
             assert len(author_results["modules"]) >= 3
@@ -240,7 +250,7 @@ def run_integration_tests():
                 public_key="0xbasictest1234567890abcdef1234567890abcd",
                 chain_type="ed25519",
                 created_at=datetime.now().isoformat(),
-                updated_at=datetime.now().isoformat()
+                updated_at=datetime.now().isoformat(),
             )
 
             async with ModuleRegistryClient() as client:

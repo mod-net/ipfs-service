@@ -24,6 +24,7 @@ from pydantic import BaseModel
 
 class ModuleMetadata(BaseModel):
     """Module metadata structure matching the API."""
+
     name: str
     version: str
     description: str | None = None
@@ -41,13 +42,15 @@ class ModuleMetadata(BaseModel):
 class ModuleRegistryClient:
     """Client for interacting with the Module Registry system."""
 
-    def __init__(self, ipfs_api_url: str | None = None, substrate_rpc_url: str | None = None):
+    def __init__(
+        self, ipfs_api_url: str | None = None, substrate_rpc_url: str | None = None
+    ):
         # Use environment variable or default
         if not ipfs_api_url:
             # Auto-detect from environment or use default
             config = get_config()
             ipfs_api_url = config.commune_ipfs.base_url
-        self.ipfs_api_url = ipfs_api_url.rstrip('/')
+        self.ipfs_api_url = ipfs_api_url.rstrip("/")
         self.substrate_rpc_url = substrate_rpc_url
         self.session: aiohttp.ClientSession | None = None
 
@@ -59,7 +62,9 @@ class ModuleRegistryClient:
         if self.session:
             await self.session.close()
 
-    async def register_module_metadata(self, metadata: ModuleMetadata, pin: bool = True) -> dict[str, Any]:
+    async def register_module_metadata(
+        self, metadata: ModuleMetadata, pin: bool = True
+    ) -> dict[str, Any]:
         """
         Register module metadata on IPFS.
 
@@ -71,20 +76,20 @@ class ModuleRegistryClient:
             Dictionary containing CID and other registration info
         """
         if not self.session:
-            raise RuntimeError("Client not initialized. Use 'async with' context manager.")
+            raise RuntimeError(
+                "Client not initialized. Use 'async with' context manager."
+            )
 
-        registration_data = {
-            "metadata": metadata.model_dump(),
-            "pin": pin
-        }
+        registration_data = {"metadata": metadata.model_dump(), "pin": pin}
 
         async with self.session.post(
-            f"{self.ipfs_api_url}/api/modules/register",
-            json=registration_data
+            f"{self.ipfs_api_url}/api/modules/register", json=registration_data
         ) as response:
             if response.status != 200:
                 error_text = await response.text()
-                raise RuntimeError(f"IPFS registration failed ({response.status}): {error_text}")
+                raise RuntimeError(
+                    f"IPFS registration failed ({response.status}): {error_text}"
+                )
 
             return await response.json()
 
@@ -99,12 +104,18 @@ class ModuleRegistryClient:
             ModuleMetadata object
         """
         if not self.session:
-            raise RuntimeError("Client not initialized. Use 'async with' context manager.")
+            raise RuntimeError(
+                "Client not initialized. Use 'async with' context manager."
+            )
 
-        async with self.session.get(f"{self.ipfs_api_url}/api/modules/{cid}") as response:
+        async with self.session.get(
+            f"{self.ipfs_api_url}/api/modules/{cid}"
+        ) as response:
             if response.status != 200:
                 error_text = await response.text()
-                raise RuntimeError(f"Failed to retrieve metadata ({response.status}): {error_text}")
+                raise RuntimeError(
+                    f"Failed to retrieve metadata ({response.status}): {error_text}"
+                )
 
             metadata_dict = await response.json()
             return ModuleMetadata(**metadata_dict)
@@ -116,7 +127,7 @@ class ModuleRegistryClient:
         tags: list[str] | None = None,
         author: str | None = None,
         skip: int = 0,
-        limit: int = 50
+        limit: int = 50,
     ) -> dict[str, Any]:
         """
         Search for modules by various criteria.
@@ -133,7 +144,9 @@ class ModuleRegistryClient:
             Search results dictionary
         """
         if not self.session:
-            raise RuntimeError("Client not initialized. Use 'async with' context manager.")
+            raise RuntimeError(
+                "Client not initialized. Use 'async with' context manager."
+            )
 
         search_data = {
             "query": query,
@@ -141,12 +154,11 @@ class ModuleRegistryClient:
             "tags": tags,
             "author": author,
             "skip": skip,
-            "limit": limit
+            "limit": limit,
         }
 
         async with self.session.post(
-            f"{self.ipfs_api_url}/api/modules/search",
-            json=search_data
+            f"{self.ipfs_api_url}/api/modules/search", json=search_data
         ) as response:
             if response.status != 200:
                 error_text = await response.text()
@@ -166,15 +178,18 @@ class ModuleRegistryClient:
             Unregistration confirmation
         """
         if not self.session:
-            raise RuntimeError("Client not initialized. Use 'async with' context manager.")
+            raise RuntimeError(
+                "Client not initialized. Use 'async with' context manager."
+            )
 
         async with self.session.delete(
-            f"{self.ipfs_api_url}/api/modules/{cid}",
-            params={"unpin": unpin}
+            f"{self.ipfs_api_url}/api/modules/{cid}", params={"unpin": unpin}
         ) as response:
             if response.status != 200:
                 error_text = await response.text()
-                raise RuntimeError(f"Unregistration failed ({response.status}): {error_text}")
+                raise RuntimeError(
+                    f"Unregistration failed ({response.status}): {error_text}"
+                )
 
             return await response.json()
 
@@ -189,12 +204,18 @@ class ModuleRegistryClient:
             Statistics dictionary
         """
         if not self.session:
-            raise RuntimeError("Client not initialized. Use 'async with' context manager.")
+            raise RuntimeError(
+                "Client not initialized. Use 'async with' context manager."
+            )
 
-        async with self.session.get(f"{self.ipfs_api_url}/api/modules/{cid}/stats") as response:
+        async with self.session.get(
+            f"{self.ipfs_api_url}/api/modules/{cid}/stats"
+        ) as response:
             if response.status != 200:
                 error_text = await response.text()
-                raise RuntimeError(f"Failed to get stats ({response.status}): {error_text}")
+                raise RuntimeError(
+                    f"Failed to get stats ({response.status}): {error_text}"
+                )
 
             return await response.json()
 
@@ -220,8 +241,8 @@ class ModuleRegistryClient:
 
             # Convert bytes to hex string for the pallet client
             public_key_hex = public_key.hex()
-            if not public_key_hex.startswith('0x'):
-                public_key_hex = '0x' + public_key_hex
+            if not public_key_hex.startswith("0x"):
+                public_key_hex = "0x" + public_key_hex
 
             # Register the module
             result = client.register_module(public_key_hex, cid)
@@ -231,7 +252,7 @@ class ModuleRegistryClient:
                 "block_hash": result.block_hash,
                 "block_number": result.block_number,
                 "extrinsic_hash": result.extrinsic_hash,
-                "events": result.events
+                "events": result.events,
             }
 
         except Exception as e:
@@ -241,7 +262,7 @@ class ModuleRegistryClient:
                 "error": str(e),
                 "block_hash": None,
                 "extrinsic_hash": None,
-                "events": []
+                "events": [],
             }
 
 
@@ -264,14 +285,16 @@ async def demo_workflow():
         public_key="test_public_key",
         chain_type="ed25519",
         created_at=time.time(),
-        updated_at=time.time()
+        updated_at=time.time(),
     )
 
     async with ModuleRegistryClient() as client:
         try:
             # Step 1: Register metadata on IPFS
             print("\n📦 Step 1: Registering module metadata on IPFS...")
-            registration_result = await client.register_module_metadata(metadata, pin=True)
+            registration_result = await client.register_module_metadata(
+                metadata, pin=True
+            )
 
             cid = registration_result["cid"]
             print("✅ Metadata registered successfully!")
@@ -282,7 +305,7 @@ async def demo_workflow():
 
             # Step 2: Register CID on Substrate pallet
             print("\n🔗 Step 2: Registering CID on Substrate pallet...")
-            public_key_bytes = bytes.fromhex(metadata.public_key.replace('0x', ''))
+            public_key_bytes = bytes.fromhex(metadata.public_key.replace("0x", ""))
             substrate_result = client.register_on_substrate(public_key_bytes, cid)
 
             print("✅ CID registered on-chain!")
@@ -302,15 +325,15 @@ async def demo_workflow():
             # Step 4: Search for modules
             print("\n🔍 Step 4: Searching for modules...")
             search_results = await client.search_modules(
-                query="defi",
-                chain_type="ed25519",
-                limit=10
+                query="defi", chain_type="ed25519", limit=10
             )
 
             print("✅ Search completed!")
             print(f"   Found {len(search_results['modules'])} modules")
-            for module in search_results['modules'][:3]:  # Show first 3
-                print(f"   - {module['name']} v{module['version']} ({module['cid'][:12]}...)")
+            for module in search_results["modules"][:3]:  # Show first 3
+                print(
+                    f"   - {module['name']} v{module['version']} ({module['cid'][:12]}...)"
+                )
 
             # Step 5: Get statistics
             print("\n📊 Step 5: Getting module statistics...")
