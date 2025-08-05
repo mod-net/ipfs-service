@@ -32,19 +32,29 @@ A distributed file storage system built on IPFS (InterPlanetary File System) wit
    uv sync
    ```
 
-3. **Set up IPFS**
-   
-   **Option A: Local IPFS Node**
-   ```bash
-   # Install IPFS (if not already installed)
-   wget https://dist.ipfs.io/go-ipfs/v0.14.0/go-ipfs_v0.14.0_linux-amd64.tar.gz
-   tar -xvzf go-ipfs_v0.14.0_linux-amd64.tar.gz
-   sudo mv go-ipfs/ipfs /usr/local/bin/
-   
-   # Initialize and start IPFS
-   ipfs init
-   ipfs daemon
-   ```
+3. **Set up IPFS (Kubo)**
+    
+    **Install IPFS Kubo (Required for full functionality)**
+    ```bash
+    # Download latest Kubo release
+    wget https://dist.ipfs.tech/kubo/v0.28.0/kubo_v0.28.0_linux-amd64.tar.gz
+    tar -xzf kubo_v0.28.0_linux-amd64.tar.gz
+    cd kubo
+    sudo bash install.sh
+    
+    # Initialize IPFS repository
+    ipfs init
+    
+    # Start IPFS daemon
+    ipfs daemon
+    ```
+    
+    **Note**: The IPFS daemon must be running for full functionality. You should see:
+    ```
+    RPC API server listening on /ip4/127.0.0.1/tcp/5001
+    Gateway server listening on /ip4/127.0.0.1/tcp/8080
+    Daemon is ready
+    ```
    
    **Option B: Use Public Gateway** (for development only)
    ```bash
@@ -86,6 +96,89 @@ ipfs/
 ├── pyproject.toml       # Project configuration
 └── README.md           # This file
 ```
+
+## Module Registry Integration
+
+This IPFS storage system includes a **Module Registry** integration for storing and managing blockchain module metadata. The Module Registry provides a decentralized way to store module information off-chain while keeping only content identifiers (CIDs) on-chain.
+
+### Features
+
+- 🔗 **Multi-chain Support**: Compatible with Ed25519, Ethereum, Solana, and other blockchain public key formats
+- 📦 **Metadata Storage**: Store rich module metadata (name, version, dependencies, etc.) on IPFS
+- 🔍 **Search & Discovery**: Find modules by name, author, chain type, tags, and more
+- 📊 **Statistics**: Get IPFS storage statistics for module metadata
+- 🗃️ **Database Indexing**: Local SQLite database for fast search and retrieval
+
+### Module Registry Workflow
+
+1. **Register Module Metadata**: Store module information on IPFS
+2. **Get CID**: Receive IPFS Content Identifier for the metadata
+3. **Register On-Chain**: Store the CID on the Substrate pallet (off-chain step)
+4. **Retrieve**: Query pallet for CID, then fetch metadata from IPFS
+
+### Module Registry API Endpoints
+
+- `POST /api/modules/register` - Register module metadata on IPFS
+- `GET /api/modules/{cid}` - Retrieve module metadata by CID
+- `POST /api/modules/search` - Search modules by various criteria
+- `DELETE /api/modules/{cid}` - Unregister module (remove from database, optionally unpin)
+- `GET /api/modules/{cid}/stats` - Get IPFS statistics for module metadata
+
+### Integration Client
+
+Use the provided integration client to test the complete workflow:
+
+```bash
+# Run the integration demo
+cd commune-ipfs
+uv run python integration_client.py
+
+# Run integration tests
+uv run python test_module_integration.py
+```
+
+### Example Module Registration
+
+```python
+import asyncio
+from integration_client import ModuleRegistryClient, ModuleMetadata
+
+async def register_module():
+    metadata = ModuleMetadata(
+        name="my-awesome-module",
+        version="1.0.0",
+        description="An awesome blockchain module",
+        author="developer@example.com",
+        license="MIT",
+        repository="https://github.com/user/my-awesome-module",
+        dependencies=["substrate-api"],
+        tags=["defi", "substrate"],
+        public_key="0x1234567890abcdef...",
+        chain_type="ed25519"
+    )
+    
+    async with ModuleRegistryClient() as client:
+        # Register metadata on IPFS
+        result = await client.register_module_metadata(metadata)
+        print(f"CID: {result['cid']}")
+        
+        # Register CID on Substrate pallet (placeholder)
+        substrate_result = client.register_on_substrate(
+            public_key=bytes.fromhex(metadata.public_key.replace('0x', '')),
+            cid=result['cid']
+        )
+        
+        return result['cid']
+
+# Run the example
+cid = asyncio.run(register_module())
+```
+
+### Prerequisites for Module Registry
+
+1. **IPFS Daemon Running**: Must have IPFS daemon active (see installation above)
+2. **Backend Running**: Start the commune-ipfs backend with `uv run python main.py`
+3. **Dependencies**: All dependencies installed with `uv pip install -e .`
 
 ## API Endpoints
 

@@ -30,8 +30,25 @@ class IPFSService:
         """Get IPFS HTTP client with lazy initialization."""
         if self._client is None:
             try:
+                # Convert HTTP URL to multiaddr format for ipfshttpclient
+                # Parse URL and convert to multiaddr format
+                from urllib.parse import urlparse
+
+                parsed = urlparse(self.api_url)
+                if parsed.scheme == 'http' and parsed.hostname:
+                    # Convert hostname to IP for local development
+                    hostname = parsed.hostname
+                    if hostname == 'localhost':
+                        hostname = '127.0.0.1'  # Standard loopback IP
+
+                    port = parsed.port or 5001  # Default IPFS API port
+                    addr = f"/ip4/{hostname}/tcp/{port}"
+                else:
+                    # Fallback to original URL for non-HTTP or malformed URLs
+                    addr = self.api_url
+
                 self._client = ipfshttpclient.connect(
-                    addr=self.api_url, timeout=self.timeout
+                    addr=addr, timeout=self.timeout
                 )
             except Exception as e:
                 raise HTTPException(
@@ -111,6 +128,42 @@ class IPFSService:
             raise
         except Exception as e:
             msg = f"Failed to add file to IPFS: {str(e)}"
+            raise HTTPException(status_code=500, detail=msg) from e
+
+    async def add_json_content(self, content: str, filename: str = "data.json") -> dict[str, Any]:
+        """
+        Add JSON content directly to IPFS without file type restrictions.
+
+        Args:
+            content: JSON string content to upload
+            filename: Optional filename for the content
+
+        Returns:
+            Dictionary containing CID and upload information
+        """
+        try:
+            content_bytes = content.encode('utf-8')
+            client = self._get_client()
+
+            # Add content to IPFS
+            loop = asyncio.get_event_loop()
+            result = await loop.run_in_executor(
+                None, lambda: client.add(io.BytesIO(content_bytes), pin=True)
+            )
+
+            # Extract CID from result
+            cid = result["Hash"]
+
+            return {
+                "cid": cid,
+                "size": len(content_bytes),
+                "filename": filename,
+                "content_type": "application/json",
+                "ipfs_result": result,
+            }
+
+        except Exception as e:
+            msg = f"Failed to add JSON content to IPFS: {str(e)}"
             raise HTTPException(status_code=500, detail=msg) from e
 
     async def get_file(self, cid: str) -> bytes:
