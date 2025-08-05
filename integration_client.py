@@ -18,8 +18,8 @@ import time
 from typing import Any
 
 import aiohttp
-from scripts.config import get_config
 from pydantic import BaseModel
+from scripts.config import get_config
 
 
 class ModuleMetadata(BaseModel):
