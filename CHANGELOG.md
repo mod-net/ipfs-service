@@ -27,6 +27,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Missing license file reference
 - Incomplete .gitignore patterns for development files
 
+## [1.0.1] - 2025-08-06
+
+### Changed
+- Added comprehensive versioning system with CLI interface
+
 ## [1.0.0] - Initial Release
 
 ### Added
