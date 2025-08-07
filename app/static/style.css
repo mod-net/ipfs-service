@@ -453,34 +453,34 @@ body {
     .container {
         padding: 10px;
     }
-    
+
     .header h1 {
         font-size: 2rem;
     }
-    
+
     .main-content {
         padding: 20px;
     }
-    
+
     .upload-options {
         grid-template-columns: 1fr;
     }
-    
+
     .search-bar {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .files-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .section-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
     }
-    
+
     .pagination {
         flex-direction: column;
         gap: 10px;
