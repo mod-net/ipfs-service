@@ -1,6 +1,6 @@
 [project]
 name = "ipfs-storage"
-version = "0.1.0"
+version = "0.0.1"
 description = "IPFS-based distributed file storage system with FastAPI backend and web interface"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -85,7 +85,7 @@ skip_gitignore = true
 
 [tool.ruff]
 line-length = 88
-target-version = "py311"
+target-version = "0.0.1"
 include = ["app/**/*.py", "tests/**/*.py", "*.py"]
 exclude = [
     "test_new",
@@ -132,7 +132,7 @@ max-line-length = 88
 good-names = ["i", "j", "k", "ex", "Run", "_", "id", "db", "app"]
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "0.0.1"
 disallow_untyped_defs = false
 disallow_incomplete_defs = false
 check_untyped_defs = true
