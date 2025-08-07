@@ -128,7 +128,7 @@ init_ipfs() {
 # Test IPFS installation
 test_ipfs() {
     log_info "Testing IPFS installation..."
-    
+
     if ! check_command ipfs; then
         log_error "IPFS command not found after installation!"
         return 1
@@ -141,10 +141,10 @@ test_ipfs() {
     log_info "Testing basic IPFS functionality..."
     TEST_CONTENT="Hello, IPFS! This is a test from the Module Registry installation script."
     TEST_CID=$(echo "$TEST_CONTENT" | ipfs add -q)
-    
+
     if [[ -n "$TEST_CID" ]]; then
         log_success "Basic IPFS functionality test passed (CID: ${TEST_CID})"
-        
+
         # Clean up test content
         ipfs pin rm "$TEST_CID" >/dev/null 2>&1 || true
     else
@@ -156,7 +156,7 @@ test_ipfs() {
 # Start IPFS daemon
 start_daemon() {
     log_info "Checking if IPFS daemon is already running..."
-    
+
     if pgrep -f "ipfs daemon" >/dev/null; then
         log_warning "IPFS daemon is already running!"
         return 0
@@ -171,13 +171,13 @@ start_daemon() {
 
     log_info "Starting IPFS daemon..."
     log_warning "The daemon will run in the background. Use 'pkill -f \"ipfs daemon\"' to stop it."
-    
+
     nohup ipfs daemon >/dev/null 2>&1 &
     DAEMON_PID=$!
-    
+
     # Wait a moment for daemon to start
     sleep 3
-    
+
     if kill -0 $DAEMON_PID 2>/dev/null; then
         log_success "IPFS daemon started successfully (PID: ${DAEMON_PID})"
         log_info "API available at: http://127.0.0.1:5001"
@@ -201,27 +201,27 @@ cleanup() {
 main() {
     echo
     log_info "Starting IPFS installation process..."
-    
+
     # Set up cleanup trap
     trap cleanup EXIT
-    
+
     # Check prerequisites
     check_sudo
-    
+
     # Check for existing installation
     if check_existing_ipfs; then
         install_ipfs
     fi
-    
+
     # Initialize repository
     init_ipfs
-    
+
     # Test installation
     test_ipfs
-    
+
     # Optionally start daemon
     start_daemon
-    
+
     echo
     log_success "IPFS installation completed successfully!"
     echo
@@ -264,17 +264,17 @@ case "${1:-}" in
         if check_command ipfs; then
             # Stop daemon if running
             pkill -f "ipfs daemon" 2>/dev/null || true
-            
+
             # Remove binary
             $SUDO rm -f "${INSTALL_DIR}/ipfs"
-            
+
             echo -n "Do you want to remove the IPFS repository (~/.ipfs)? [y/N]: "
             read -r response
             if [[ "$response" =~ ^[Yy]$ ]]; then
                 rm -rf "$HOME/.ipfs"
                 log_success "IPFS repository removed"
             fi
-            
+
             log_success "IPFS uninstalled successfully!"
         else
             log_warning "IPFS not found, nothing to uninstall"
