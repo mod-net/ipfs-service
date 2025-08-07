@@ -1,6 +1,11 @@
-# IPFS Storage System
+# Commune IPFS Storage System
 
-A distributed file storage system built on IPFS (InterPlanetary File System) with a FastAPI backend and web interface for seamless file management.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)](https://fastapi.tiangolo.com/)
+[![IPFS](https://img.shields.io/badge/IPFS-Kubo-orange.svg)](https://ipfs.tech/)
+
+A distributed file storage system built on IPFS (InterPlanetary File System) with a FastAPI backend and web interface for seamless file management. This system serves as the storage layer for the Mod-Net module registry, providing decentralized metadata storage for blockchain modules.
 
 ## Features
 
@@ -23,13 +28,25 @@ A distributed file storage system built on IPFS (InterPlanetary File System) wit
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd ipfs
+   git clone https://github.com/Bakobiibizo/commune-ipfs.git
+   cd commune-ipfs
    ```
 
-2. **Install dependencies**
+2. **Install dependencies using UV (recommended)**
    ```bash
+   # Install UV if not already installed
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   
+   # Install project dependencies
    uv sync
+   
+   # Or install in development mode
+   uv pip install -e .
+   ```
+   
+   **Alternative: Using pip**
+   ```bash
+   pip install -r requirements.txt
    ```
 
 3. **Set up IPFS (Kubo)**
@@ -276,17 +293,91 @@ CMD ["uv", "run", "main.py"]
 - Enable HTTPS with SSL certificates
 - Set up monitoring and logging
 
+## Development
+
+### Setting up Development Environment
+
+```bash
+# Clone the repository
+git clone https://github.com/Bakobiibizo/commune-ipfs.git
+cd commune-ipfs
+
+# Install dependencies
+uv sync
+
+# Install pre-commit hooks (optional but recommended)
+pre-commit install
+```
+
+### Running Tests
+
+```bash
+# Run all tests
+uv run pytest
+
+# Run with coverage
+uv run pytest --cov=app --cov-report=html
+
+# Run specific test files
+uv run python test_core.py
+uv run python test_module_integration.py
+```
+
+### Code Quality
+
+```bash
+# Format code
+uv run black .
+uv run isort . --profile black
+
+# Lint code
+uv run ruff check .
+uv run mypy .
+
+# Run all quality checks
+uv run python run_all_tests.py
+```
+
 ## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+3. Make your changes and add tests
+4. Run the test suite and ensure all tests pass
+5. Run code quality checks (black, isort, ruff, mypy)
+6. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+7. Push to the branch (`git push origin feature/amazing-feature`)
+8. Open a Pull Request
+
+### Commit Message Convention
+
+We follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
+
+- `feat:` - New features
+- `fix:` - Bug fixes
+- `docs:` - Documentation changes
+- `style:` - Code style changes (formatting, etc.)
+- `refactor:` - Code refactoring
+- `test:` - Adding or updating tests
+- `chore:` - Maintenance tasks
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes.
+
+## Roadmap
+
+- [ ] PostgreSQL support for production deployments
+- [ ] IPFS cluster integration for high availability
+- [ ] Advanced search and filtering capabilities
+- [ ] Webhook support for file events
+- [ ] Integration with more blockchain networks
+- [ ] Performance optimizations and caching
+- [ ] Docker Compose setup for easy deployment
 
 ## Troubleshooting
 

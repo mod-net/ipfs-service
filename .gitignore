@@ -1,11 +1,22 @@
+# =============================================================================
+# Commune IPFS Storage System - .gitignore
+# =============================================================================
+
+# Database files
 *.db
+*.sqlite
+*.sqlite3
+files.db
+test.db
 
-
-# Logs
+# Logs and temporary files
 logs/
 *.log
+*.log.*
+*.tmp
+*.temp
 
-# IPFS specific
+# IPFS specific files and directories
 .ipfs/
 ipfs_data/
 *.ipfs
@@ -13,6 +24,15 @@ ipfs_data/
 repo/
 api
 swarm.key
+kubo/
+go-ipfs/
+*.ipfs-lock
+
+# Application specific
+upload_temp/
+static/uploads/
+test_files/
+test_uploads/
 
 # Python
 __pycache__/
@@ -116,8 +136,11 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
-# Environments
+# Virtual environments and environment files
 .env
+.env.local
+.env.production
+.env.test
 .venv
 env/
 venv/
@@ -125,6 +148,10 @@ ENV/
 env.bak/
 venv.bak/
 test_env/
+
+# UV specific
+.python-version
+uv.lock
 
 # Spyder project settings
 .spyderproject
@@ -149,6 +176,166 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# =============================================================================
+# IDE and Editor files
+# =============================================================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# =============================================================================
+# Operating System files
+# =============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =============================================================================
+# Development and Testing
+# =============================================================================
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+
+# Pytest
+.pytest_cache/
+.cache/
+
+# Benchmarks
+.benchmarks/
+
+# Profiling
+*.prof
+*.pstats
+
+# =============================================================================
+# Documentation
+# =============================================================================
+
+# Sphinx
+docs/_build/
+docs/build/
+.doctrees/
+
+# =============================================================================
+# Deployment and Distribution
+# =============================================================================
+
+# Docker
+.dockerignore
+Dockerfile.local
+docker-compose.override.yml
+
+# Kubernetes
+*.k8s.yaml
+*.k8s.yml
+kustomization.yaml
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# =============================================================================
+# Security and Secrets
+# =============================================================================
+
+# API keys and secrets
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# SSH keys
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+
+# =============================================================================
+# Miscellaneous
+# =============================================================================
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Large files (should use Git LFS)
+*.bin
+*.dat
+*.dump
+*.iso
+*.img
 
 # Rust
 target/
