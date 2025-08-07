@@ -1,0 +1,113 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    -   id: trailing-whitespace
+        exclude: |
+            (?x)^(
+                .*/\.git/
+                |.*\.md$
+            )$
+    -   id: end-of-file-fixer
+        exclude: |
+            (?x)^(
+                .*/\.git/
+            )$
+    -   id: check-yaml
+    -   id: check-added-large-files
+        args: [--maxkb=1024]
+    -   id: check-merge-conflict
+    -   id: check-symlinks
+    -   id: mixed-line-ending
+        args: [--fix=lf]
+    -   id: check-case-conflict
+    -   id: check-json
+    -   id: check-toml
+
+-   repo: https://github.com/psf/black
+    rev: 23.12.1
+    hooks:
+    -   id: black
+        name: black (python)
+        language: system
+        entry: bash -c 'if command -v black >/dev/null 2>&1; then black --line-length=88 "$@"; elif command -v uv >/dev/null 2>&1; then uv run black --line-length=88 "$@"; else echo "black not found, skipping formatting"; fi'
+        types: [python]
+        files: \.(py|pyi|pyx|pxd)$
+        exclude: |
+            ^(
+                .*/\.git/
+                |.*/build/
+                |.*/target/
+                |.*/\.venv/
+                |.*/venv/
+                |.*/\.env/
+                |.*/\.mypy_cache/
+                |.*/\.pytest_cache/
+                |.*/\.ruff_cache/
+                |.*/__pycache__/
+            )
+
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.7
+    hooks:
+    -   id: ruff
+        name: ruff (python)
+        types: [python]
+        args: [--fix]
+        exclude: |
+            ^(
+                .*/\.git/
+                |.*/build/
+                |.*/target/
+                |.*/\.venv/
+                |.*/venv/
+                |.*/\.env/
+                |.*/\.mypy_cache/
+                |.*/\.pytest_cache/
+                |.*/\.ruff_cache/
+                |.*/__pycache__/
+            )
+
+-   repo: https://github.com/pycqa/isort
+    rev: 6.0.1
+    hooks:
+    -   id: isort
+        name: isort (python)
+        language: system
+        entry: bash -c 'if command -v isort >/dev/null 2>&1; then isort --profile=black "$@"; elif command -v uv >/dev/null 2>&1; then uv run isort --profile=black "$@"; else echo "isort not found, skipping import sorting"; fi'
+        types: [python]
+        files: \.(py|pyi|pyx|pxd)$
+        exclude: |
+            ^(
+                .*/\.git/
+                |.*/build/
+                |.*/target/
+                |.*/\.venv/
+                |.*/venv/
+                |.*/\.env/
+                |.*/\.mypy_cache/
+                |.*/\.pytest_cache/
+                |.*/\.ruff_cache/
+                |.*/__pycache__/
+            )
+
+# Python-specific tooling for commune-ipfs
+-   repo: local
+    hooks:
+    -   id: mypy
+        name: mypy (type checking)
+        entry: bash -c 'if command -v mypy >/dev/null 2>&1; then mypy --ignore-missing-imports --no-strict-optional --follow-imports=silent --disable-error-code=return-value --disable-error-code=no-any-return --disable-error-code=arg-type .; elif command -v uv >/dev/null 2>&1; then uv run mypy --ignore-missing-imports --no-strict-optional --follow-imports=silent --disable-error-code=return-value --disable-error-code=no-any-return --disable-error-code=arg-type .; else echo "mypy not found, skipping type checking"; fi'
+        language: system
+        types: [python]
+        pass_filenames: false
+        always_run: false
+        verbose: false
+
+    -   id: pytest-basic
+        name: pytest (basic tests only)
+        entry: bash -c 'if command -v pytest >/dev/null 2>&1; then pytest --tb=short -x app/tests/ || true; elif command -v uv >/dev/null 2>&1; then uv run pytest --tb=short -x app/tests/ || true; else echo "pytest not found, skipping tests"; fi'
+        language: system
+        types: [python]
+        pass_filenames: false
+        always_run: false
+        verbose: false

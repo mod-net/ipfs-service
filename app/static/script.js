@@ -20,7 +20,7 @@ class IPFSStorageUI {
         const uploadArea = document.getElementById('uploadArea');
 
         fileInput.addEventListener('change', (e) => this.handleFileSelect(e));
-        
+
         // Drag and drop
         uploadArea.addEventListener('dragover', (e) => this.handleDragOver(e));
         uploadArea.addEventListener('dragleave', (e) => this.handleDragLeave(e));
@@ -60,7 +60,7 @@ class IPFSStorageUI {
         e.preventDefault();
         e.stopPropagation();
         document.getElementById('uploadArea').classList.remove('dragover');
-        
+
         const files = e.dataTransfer.files;
         this.uploadFiles(files);
     }
@@ -141,7 +141,7 @@ class IPFSStorageUI {
 
         try {
             const skip = page * this.pageSize;
-            const url = this.currentSearch 
+            const url = this.currentSearch
                 ? '/api/files/search'
                 : `/api/files/?skip=${skip}&limit=${this.pageSize}`;
 
@@ -179,7 +179,7 @@ class IPFSStorageUI {
 
     renderFiles(files) {
         const filesGrid = document.getElementById('filesGrid');
-        
+
         if (files.length === 0) {
             filesGrid.innerHTML = '<div class="loading">No files found</div>';
             return;
@@ -225,7 +225,7 @@ class IPFSStorageUI {
 
     getFileIcon(contentType, filename) {
         const ext = filename.split('.').pop().toLowerCase();
-        
+
         if (contentType && contentType.startsWith('image/')) {
             return { icon: 'fa-image', class: 'image' };
         } else if (contentType && contentType.startsWith('video/')) {
@@ -276,7 +276,7 @@ class IPFSStorageUI {
             downloadBtn.onclick = () => this.downloadFile(file.cid, file.filename);
 
             const tags = file.tags ? JSON.parse(file.tags) : [];
-            
+
             modalBody.innerHTML = `
                 <div class="file-details-modal">
                     <p><strong>Filename:</strong> ${this.escapeHtml(file.filename)}</p>
@@ -373,7 +373,7 @@ class IPFSStorageUI {
         const pageInfo = document.getElementById('pageInfo');
 
         const totalPages = Math.ceil(total / this.pageSize);
-        
+
         if (totalPages <= 1) {
             pagination.style.display = 'none';
             return;
@@ -403,7 +403,7 @@ class IPFSStorageUI {
         try {
             const response = await fetch('/info');
             const info = await response.json();
-            
+
             const statusElement = document.getElementById('nodeStatus');
             if (info.status === 'operational') {
                 statusElement.innerHTML = `<i class="fas fa-check-circle" style="color: #28a745;"></i> Connected to IPFS node`;
