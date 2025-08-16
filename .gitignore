@@ -368,3 +368,4 @@ Thumbs.db
 # Custom
 walk.py
 uv.lock
+files.db
