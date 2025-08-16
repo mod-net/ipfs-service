@@ -1,6 +1,6 @@
 [project]
-name = "ipfs-storage"
-version = "0.0.1"
+name = "commune-ipfs"
+version = "0.1.0"
 description = "IPFS-based distributed file storage system with FastAPI backend and web interface"
 readme = "README.md"
 requires-python = ">=3.10"
